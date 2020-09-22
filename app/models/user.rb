@@ -1,4 +1,5 @@
-    class User < ApplicationRecord
+class User < ApplicationRecord
+    validates :first_name, :last_name, :zip_code, presence: true
     validates :email, presence: true, uniqueness: true
     validates :session_token, presence: true, uniqueness: true
     validates :password_digest, presence: true
