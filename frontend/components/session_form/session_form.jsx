@@ -73,8 +73,8 @@ class SessionForm extends React.Component {
                 <div className="session-form-container">
                     <div className="big-errors">{this.renderErrors()}</div>
                     <form onSubmit={this.handleSubmit} className="session-form-box">
-                        <h1>Login to Gelp</h1>
-                        <h2>New to Gelp? <Link to="/signup">Sign Up</Link></h2>
+                        <p className="session-form-title">Login to Gelp</p>
+                        <p className="session-form-title-2">New to Gelp? <Link to="/signup">Sign Up</Link></p>
                         <input type="text"
                             value={this.state.email}
                             placeholder="Email"
@@ -90,7 +90,7 @@ class SessionForm extends React.Component {
                         />
                         <div className="forgot-pw">Forgot password?</div>
                         <input className="login-submit"type="submit" value="Log In"/>
-                        <div>New to Gelp? <Link to="/signup">Sign Up</Link></div>
+                        <p className="session-form-foot">New to Gelp? <Link to="/signup">Sign Up</Link></p>
                     </form>
                 </div>
             )
@@ -100,8 +100,8 @@ class SessionForm extends React.Component {
                 <div className="session-form-container">
                     <div className="big-errors">{this.renderErrors()}</div>
                     <form onSubmit={this.handleSubmit} className="session-form-box">
-                        <h1>Sign up for Gelp</h1>
-                        <h2>Connect with great local businesses</h2>
+                        <p className="session-form-title">Sign up for Gelp</p>
+                        <p className="session-form-title-2">Connect with great local businesses</p>
 
                         <input type="text"
                             value={this.state.first_name}
@@ -194,7 +194,7 @@ class SessionForm extends React.Component {
                         </label>
  
                         <input className="singup-submit" type="submit" value="Sign Up" />
-                        <div>Already on Gelp? <Link to="/login">Log in</Link></div>
+                        <p className="session-form-foot">Already on Gelp? <Link to="/login">Log in</Link></p>
                     </form>
                 </div>
             )

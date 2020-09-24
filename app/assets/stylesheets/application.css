@@ -18,7 +18,7 @@
  .logged-out-nav {
      margin-top: 25px;
      display: flex;
-     align-content: flex-end;
+     justify-content: flex-end;
  }
 
  .nav-links a {
@@ -33,4 +33,56 @@
   border-left: 1px solid black;
   border-radius: 5px;
   margin: 5px;
+ }
+
+ .session-form-box {
+     display: flex;
+     flex-wrap: wrap;
+     width: 250px;
+     margin-left: 100px;
+ }
+.session-form-box input {
+    margin: 5px;
+    width: 300px;
+}
+ .session-form-title {
+    font: bold 20px helvetica;
+    color: red;
+    text-decoration: none;
+    margin: 10px auto 10px auto;
+ }
+
+ .session-form-title-2 {
+    font: bold 15px helvetica;
+    text-decoration: none;
+    margin: 10px auto 10px auto;
+ }
+ 
+ .session-form-foot {
+    font: bold 10px helvetica;
+    color: #0073bb;
+    text-decoration: none;
+    margin-left: auto;
+ }
+ .forgot-pw {
+    font: bold 10px helvetica;
+    color: #0073bb;
+    text-decoration: none;
+    margin-left: auto;
+ }
+ 
+footer{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 32000px;
+    margin-bottom: -32000px;
+    background: lightgray;
+    margin-left: 0%;
+    margin-right: 0%;
+ }
+
+ footer a {
+    font: bold 10px helvetica;
+    color: #0073bb;
+    text-decoration: none;
  }

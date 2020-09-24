@@ -16,7 +16,6 @@ const App = () => (
         <header>
         <NavBarContainer />
         </header>
-        <h1> Welcome to Gelp! </h1>
         <Switch>
 
             <Route path="/login" component={LogInFormContainer} />
