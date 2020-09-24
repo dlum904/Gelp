@@ -5,14 +5,24 @@ import Root from './components/root';
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
-    const store = configureStore();
+
+    let store;
+    if (window.currentUser) {
+        const preloadedState = {
+            entities: {
+                users: { [window.currentUser.id]: window.currentUser }
+            },
+            session: { id: window.currentUser.id }
+        };
+        store = configureStore(preloadedState);
+        delete window.currentUser;
+    } else {
+        store = configureStore();
+    }
+
     window.getState = store.getState;
-    // window.dispatch = store.dispatch;
-    // window.signup = signup;
-    // window.login = login;
-    // window.logout = logout;
 
     ReactDOM.render(<Root store={store} />, root);
 });
 
-// user = { 1: { id: 1, first_name: "dennis", last_name: "lum", email: "dlum@.com", zip_code: "11234" } }
+// Oops, something went wrong.Please try again.

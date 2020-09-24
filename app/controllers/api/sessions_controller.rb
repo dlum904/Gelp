@@ -1,5 +1,5 @@
 class Api::SessionsController < ApplicationController
-    skip_before_action :verify_authenticity_token
+    # skip_before_action :verify_authenticity_token
 
     def create
       @user = User.find_by_credentials(
@@ -9,19 +9,16 @@ class Api::SessionsController < ApplicationController
 
         if @user
             login(@user)
-            render "api/users/show"
         else
-            render json: ["Invalid email/password combination"], status: 401
+            render json: "The email address or password you entered is incorrect.", status: 401
         end
     end
 
     def destroy
-        @user = current_user
-        if @user
+        if logged_in?
             logout
-            render "api/users/show"
         else
-            render json: ["Already signed out"], status: 404
+            render json: "Already signed out", status: 404
         end
     end
 end

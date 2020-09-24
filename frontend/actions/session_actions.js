@@ -6,19 +6,20 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 export const login = (user) => (dispatch) => {
     return APIUtil.login(user).then((user) => {
+        console.log(user);
         return dispatch(receiveCurrentUser(user))
     },
     (err) => {                                  // if promise returns an error we dispatch the error
-        return dispatch(receiveErrors(err))
+        return dispatch(receiveErrors(err.responseText))
     })
 }
 
-export const logout = (user) => (dispatch) => {
-    return APIUtil.logout(user).then(() => {
+export const logout = () => (dispatch) => {
+    return APIUtil.logout().then(() => {
         return dispatch(logoutCurrentUser())
     },
     (err) => {
-        return dispatch(receiveErrors(err))
+        return dispatch(receiveErrors(err.responseText))
     })
 }
 
@@ -27,14 +28,14 @@ export const signup = (user) => (dispatch) => {
         return dispatch(receiveCurrentUser(user))
     },
     (err) => {
-        return dispatch(receiveErrors(err))
+        return dispatch(receiveErrors(err.responseText))
     })
 }
 
-const receiveCurrentUser = (user) => {
+const receiveCurrentUser = (currentUser) => {
     return {
         type: RECEIVE_CURRENT_USER,
-        user
+        currentUser
     }
 }
 

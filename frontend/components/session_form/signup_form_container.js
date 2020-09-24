@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
+import { signup } from '../../actions/session_actions';
 
 const mSTP = (state) => {
     return {
         formType: "signup",
-        error: state.errors,
+        errors: state.errors.session
     }
 }
 

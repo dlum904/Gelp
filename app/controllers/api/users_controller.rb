@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-    skip_before_action :verify_authenticity_token
+    # skip_before_action :verify_authenticity_token
     def create
         @user = User.new(user_params)
         if @user.save
@@ -13,6 +13,6 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :zip_code, :password)
+        params.require(:user).permit(:first_name, :last_name, :email, :zip_code, :birthday, :password)
     end
 end
