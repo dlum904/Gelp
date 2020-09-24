@@ -1,0 +1,56 @@
+
+
+
+ .session-form-box {
+     display: flex;
+     flex-wrap: wrap;
+     width: 250px;
+     margin-left: 100px;
+ }
+.session-form-box input {
+    margin: 5px;
+    width: 300px;
+}
+ .session-form-title {
+    font: bold 20px helvetica;
+    color: red;
+    text-decoration: none;
+    margin: 10px auto 10px auto;
+ }
+
+ .session-form-title-2 {
+    font: bold 15px helvetica;
+    text-decoration: none;
+    margin: 10px auto 10px auto;
+ }
+ 
+ .session-form-foot {
+    font: bold 10px helvetica;
+    color: #0073bb;
+    text-decoration: none;
+    margin-left: auto;
+ }
+ .forgot-pw {
+    font: bold 10px helvetica;
+    color: #0073bb;
+    text-decoration: none;
+    margin-left: auto;
+ }
+ 
+.big-errors p {
+     font: 16px helvetica;
+     background: #fcd6d3;
+     padding: 18px 18px 18px 24px;
+     margin-left: 75px;
+     margin-right: 75px;
+     border-radius: 3px;;
+ }
+
+ .small-errors p {
+    font: 10px helvetica;
+    
+ }
+.small-errors i {
+    color: orange;
+    margin: 5px;
+ }

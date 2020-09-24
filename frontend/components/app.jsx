@@ -13,6 +13,7 @@ import LogInFormContainer from './session_form/login_form_container';
 
 const App = () => (
     <div>
+        
         <header>
         <NavBarContainer />
         </header>

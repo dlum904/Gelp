@@ -14,8 +14,7 @@
  *= require_self
  */
 
-
- .logged-out-nav {
+  .logged-out-nav {
      margin-top: 25px;
      display: flex;
      justify-content: flex-end;
@@ -33,42 +32,6 @@
   border-left: 1px solid black;
   border-radius: 5px;
   margin: 5px;
- }
-
- .session-form-box {
-     display: flex;
-     flex-wrap: wrap;
-     width: 250px;
-     margin-left: 100px;
- }
-.session-form-box input {
-    margin: 5px;
-    width: 300px;
-}
- .session-form-title {
-    font: bold 20px helvetica;
-    color: red;
-    text-decoration: none;
-    margin: 10px auto 10px auto;
- }
-
- .session-form-title-2 {
-    font: bold 15px helvetica;
-    text-decoration: none;
-    margin: 10px auto 10px auto;
- }
- 
- .session-form-foot {
-    font: bold 10px helvetica;
-    color: #0073bb;
-    text-decoration: none;
-    margin-left: auto;
- }
- .forgot-pw {
-    font: bold 10px helvetica;
-    color: #0073bb;
-    text-decoration: none;
-    margin-left: auto;
  }
  
 footer{
