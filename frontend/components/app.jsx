@@ -10,10 +10,10 @@ import {
 import NavBarContainer from './nav_bar/nav_bar_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
+import Search from './search/search';
 
 const App = () => (
     <div>
-        
         <header>
         <NavBarContainer />
         </header>
@@ -21,6 +21,7 @@ const App = () => (
 
             <Route path="/login" component={LogInFormContainer} />
             <Route path="/signup" component={SignUpFormContainer} />
+            <Route path="/" component={Search} />
         </Switch>
 
         <footer>
