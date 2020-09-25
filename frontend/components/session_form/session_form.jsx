@@ -13,12 +13,8 @@ class SessionForm extends React.Component {
             birthday: ""
         };
         this.demo = {
-            first_name: "",
-            last_name: "",
             email: "doge@test.com",
             password: "password1",
-            zip_code: "",
-            birthday: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
@@ -27,9 +23,14 @@ class SessionForm extends React.Component {
     }
 
     update(field) {
-        return (e) => this.setState({
-            [field]: e.currentTarget.value
-        });
+        return (e) => {
+            if (this.emailError == true) { this.emailError = false };
+            return (
+                this.setState({
+                    [field]: e.currentTarget.value
+                })
+            )
+        }
     }
 
     updateBirthday(field){
@@ -43,8 +44,6 @@ class SessionForm extends React.Component {
         if (this.emailValid()) {
             this.emailError = true;
         }
-        // else if (fieldEmpty() !== "") {
-        // }
         this.props.processForm(this.state);
     }
 
@@ -83,35 +82,45 @@ class SessionForm extends React.Component {
                         {this.props.errors.length > 0 ?
                         <p>{this.props.errors.slice(-1)}</p> : null }
                     </div>
-                <div className="session-form-container">
-                    <form onSubmit={this.handleSubmit} className="session-form-box">
-                        <p className="session-form-title">Login to Gelp</p>
-                        <p className="session-form-title-2">New to Gelp? <Link to="/signup">Sign Up</Link></p>
+                    
+                    <div className="session-form-container">
+                        <div className="session-form-box">
+                        <form onSubmit={this.handleSubmit}>
+                            <p className="session-form-title">Login to Gelp</p>
+                            <p className="session-form-title-2">New to Gelp? <Link to="/signup">Sign Up</Link></p>
 
-                        <input type="text"
-                            value={this.state.email}
-                            placeholder="Email"
-                            onChange={this.update("email")}
-                            className="form-input"
-                        />
+                            <input type="text"
+                                value={this.state.email}
+                                placeholder="Email"
+                                onChange={this.update("email")}
+                                className="form-input"
+                            />
 
-                        <div className="small-errors">
-                            {this.emailError ? <p><i className="fas fa-exclamation"></i>{this.emailValid()}</p> : null}
-                        </div> 
-                            
-                        <input type="password"
-                            value={this.state.password}
-                            placeholder="Password"
-                            onChange={this.update("password")}
-                            className="form-input"
-                        />
-                        <div className="forgot-pw">Forgot password?</div>
-                        <input className="submit" type="submit" value="Log In"/>
-                        <p className="session-form-foot">New to Gelp? <Link to="/signup">Sign Up</Link></p>
+                            <div className="small-errors">
+                                {this.emailError ? <p><i className="fas fa-exclamation"></i>{this.emailValid()}</p> : null}
+                            </div> 
+                                
+                            <input type="password"
+                                value={this.state.password}
+                                placeholder="Password"
+                                onChange={this.update("password")}
+                                className="form-input"
+                            />
+
+                            <div className="forgot-pw">Forgot password?</div>
+
+                            <input className="submit" type="submit" value="Log In"/>
+
+                            <p className="session-form-foot">New to Gelp? <Link to="/signup">Sign Up</Link></p>
+                        </form>
+
                         <button onClick={() => this.props.processForm(this.demo)}>Demo Login</button>
-                    </form>
-                    <img className="illustration" src={window.illustrationURL} />
-                </div>
+                        </div>
+
+
+                        <img className="illustration" src={window.illustrationURL} />
+
+                    </div>
                 </div>
             )
         }

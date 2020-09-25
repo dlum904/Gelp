@@ -23,6 +23,12 @@ html, body {
      justify-content: flex-end;
 }
 
+.logged-in-nav {
+     margin-top: 25px;
+     display: flex;
+     justify-content: flex-end;
+}
+
 .nav-links a {
     font: bold 14px helvetica;
   text-decoration: none;
