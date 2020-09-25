@@ -6,7 +6,7 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 export const login = (user) => (dispatch) => {
     return APIUtil.login(user).then((user) => {
-        console.log(user);
+        
         return dispatch(receiveCurrentUser(user))
     },
     (err) => {                                  // if promise returns an error we dispatch the error

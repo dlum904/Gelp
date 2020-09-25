@@ -12,7 +12,14 @@ class SessionForm extends React.Component {
             zip_code: "",
             birthday: ""
         };
-
+        this.demo = {
+            first_name: "",
+            last_name: "",
+            email: "doge@test.com",
+            password: "password1",
+            zip_code: "",
+            birthday: ""
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
 
@@ -101,6 +108,7 @@ class SessionForm extends React.Component {
                         <div className="forgot-pw">Forgot password?</div>
                         <input className="submit" type="submit" value="Log In"/>
                         <p className="session-form-foot">New to Gelp? <Link to="/signup">Sign Up</Link></p>
+                        <button onClick={() => this.props.processForm(this.demo)}>Demo Login</button>
                     </form>
                     <img className="illustration" src={window.illustrationURL} />
                 </div>
