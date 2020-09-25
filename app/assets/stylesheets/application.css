@@ -13,14 +13,17 @@
  *= require_tree .
  *= require_self
  */
-
-  .logged-out-nav {
+html, body {
+    margin:0;
+    padding:0;
+}
+.logged-out-nav {
      margin-top: 25px;
      display: flex;
      justify-content: flex-end;
- }
+}
 
- .nav-links a {
+.nav-links a {
     font: bold 14px helvetica;
   text-decoration: none;
   background-color: transparent;
@@ -32,7 +35,7 @@
   border-left: 1px solid black;
   border-radius: 5px;
   margin: 5px;
- }
+}
  
 footer{
     display: flex;
@@ -40,8 +43,10 @@ footer{
     padding-bottom: 32000px;
     margin-bottom: -32000px;
     background: lightgray;
-    margin-left: 0%;
-    margin-right: 0%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
  }
 
  footer a {

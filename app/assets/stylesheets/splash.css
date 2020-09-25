@@ -1,0 +1,8 @@
+.splash-main {
+    margin-top: 20px;;
+    background-image: url('doughnuts.jpg');
+    background-size: cover;
+    height: 570px;
+    background-position: 50%;
+    background-color: #333;
+}

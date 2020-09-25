@@ -5,7 +5,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
-import Search from './search/search';
+import Splash from './splash/splash';
 
 const App = () => (
     <div>
@@ -16,7 +16,7 @@ const App = () => (
 
             <AuthRoute path="/login" component={LogInFormContainer} />
             <AuthRoute path="/signup" component={SignUpFormContainer} />
-            <Route path="/" component={Search} />
+            <Route path="/" component={Splash} />
         </Switch>
 
         <footer>
