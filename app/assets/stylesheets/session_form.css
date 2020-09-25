@@ -1,16 +1,36 @@
 
+.session-form-container {
+    margin-top: 100px;;
+    display: flex;
+    justify-content: space-evenly;
+}
 
-
- .session-form-box {
+.illustration {
+    height: 300px;
+}
+.session-form-box {
      display: flex;
-     flex-wrap: wrap;
-     width: 250px;
-     margin-left: 100px;
+     flex-flow: column wrap;
+     width: 300px;
+
  }
-.session-form-box input {
+.form-input {
     margin: 5px;
     width: 300px;
+    height: 25px;
 }
+.name-input {
+    height: 40px;
+}
+.name-input input {
+    margin: 5px;
+    width: 143px;
+    height: 25px;
+}
+.name-input input:first-child {
+    margin-right: 0px;
+}
+
  .session-form-title {
     font: bold 20px helvetica;
     color: red;
@@ -23,7 +43,7 @@
     text-decoration: none;
     margin: 10px auto 10px auto;
  }
- 
+
  .session-form-foot {
     font: bold 10px helvetica;
     color: #0073bb;
@@ -43,14 +63,70 @@
      padding: 18px 18px 18px 24px;
      margin-left: 75px;
      margin-right: 75px;
-     border-radius: 3px;;
+     border-radius: 3px;
  }
 
  .small-errors p {
-    font: 10px helvetica;
-    
- }
+  width: 300px;
+  margin: 10px auto;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 5px;
+  text-align: center;
+  color: black;
+  font: 14px helvetica;
+  position: relative;
+}
+
+.small-errors p::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+  left: 20px;
+  top: -19px;
+    }
+
+.small-errors p::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid gray;
+  left: 20px;
+  top: -20px;
+    }
 .small-errors i {
     color: orange;
     margin: 5px;
  }
+
+.birthdate-dropdown {
+    font: bold 10px helvetica;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+ }
+ .birthday {
+    width: 100px;
+    margin-right: 4px;
+    height: 30px;
+ }
+
+.submit {
+    height: 35px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    width: 309px;
+    margin: 5px;
+}

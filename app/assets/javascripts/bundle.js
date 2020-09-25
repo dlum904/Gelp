@@ -431,9 +431,20 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
 
       if (this.emailValid()) {
         this.emailError = true;
-      }
+      } // else if (fieldEmpty() !== "") {
+      // }
+
 
       this.props.processForm(this.state);
+    }
+  }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      var error = this.props.errors;
+
+      if (error.length > 0 && error.slice(-1) instanceof Array) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.renderErrors());
+      } else if (error.length > 0) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, error.slice(-1));
     }
   }, {
     key: "emailValid",
@@ -443,27 +454,22 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
-    key: "renderErrors",
-    value: function renderErrors() {
-      // console.log(this.props.errors);
-      var error = this.props.errors;
-
-      if (error.length > 0 && error.slice(-1) instanceof Array) {
-        // console.log(error)
-        // console.log(error.slice(-1)[0]);
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.renderErrors());
-      } else if (error.length > 0) return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, error.slice(-1));
+    key: "fieldEmpty",
+    value: function fieldEmpty(field) {
+      if (this.state.field === "") {
+        return "Please fill out this field";
+      }
     }
   }, {
     key: "render",
     value: function render() {
       if (this.props.formType === "login") {
         //login form
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "session-form-container"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "big-errors"
-        }, this.props.errors.length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.errors.slice(-1)) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        }, this.props.errors.length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.errors.slice(-1)) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "session-form-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           onSubmit: this.handleSubmit,
           className: "session-form-box"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -477,7 +483,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
           value: this.state.email,
           placeholder: "Email",
           onChange: this.update("email"),
-          className: "login-input"
+          className: "form-input"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "small-errors"
         }, this.emailError ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -487,63 +493,68 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
           value: this.state.password,
           placeholder: "Password",
           onChange: this.update("password"),
-          className: "login-input"
+          className: "form-input"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "forgot-pw"
         }, "Forgot password?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          className: "login-submit",
+          className: "submit",
           type: "submit",
           value: "Log In"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "session-form-foot"
         }, "New to Gelp? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/signup"
-        }, "Sign Up"))));
+        }, "Sign Up"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "illustration",
+          src: window.illustrationURL
+        })));
       } else {
         //sign up form
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "session-form-container"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "big-errors"
-        }, this.renderErrors()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        }, this.props.errors.length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.errors.slice(-1)) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "session-form-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           onSubmit: this.handleSubmit,
           className: "session-form-box"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "session-form-title"
         }, "Sign up for Gelp"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "session-form-title-2"
-        }, "Connect with great local businesses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, "Connect with great local businesses"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "name-input"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           value: this.state.first_name,
           placeholder: "First Name",
-          onChange: this.update("first_name"),
-          className: "signup-name-input"
+          onChange: this.update("first_name")
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           value: this.state.last_name,
           placeholder: "Last Name",
-          onChange: this.update("last_name"),
-          className: "signup-name-input"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          onChange: this.update("last_name")
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           value: this.state.email,
           placeholder: "Email",
           onChange: this.update("email"),
-          className: "signup-input"
+          className: "form-input"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "password",
           value: this.state.password,
           placeholder: "Password",
           onChange: this.update("password"),
-          className: "signup-input"
+          className: "form-input"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           value: this.state.zip_code,
           placeholder: "ZIP CODE",
           onChange: this.update("zip_code"),
-          className: "signup-input"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Birthday Optional", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-          className: "month-birthday"
+          className: "form-input"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "birthdate-dropdown"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, " Birthday Optional"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+          className: "birthday"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           placeholder: "Month"
         }, "Month"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -571,7 +582,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         }, "Nov"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           value: "12"
         }, "Dec")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-          className: "day-birthday"
+          className: "birthday"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           placeholder: "Day"
         }, "Day"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -637,7 +648,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
         }, "30"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           value: "31"
         }, "31")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-          className: "year-birthday"
+          className: "birthday"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           placeholder: "Year"
         }, "Month"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
@@ -880,15 +891,18 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
           value: "1902"
         }, "1902"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           value: "1901"
-        }, "1901"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          className: "singup-submit",
+        }, "1901")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "submit",
           type: "submit",
           value: "Sign Up"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "session-form-foot"
         }, "Already on Gelp? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/login"
-        }, "Log in"))));
+        }, "Log in"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "illustration",
+          src: window.illustrationURL
+        })));
       }
     }
   }]);
