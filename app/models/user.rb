@@ -6,6 +6,11 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6 }, allow_nil: true
 
     after_initialize :ensure_session_token
+    
+    has_many :businesses,
+        foreign_key: :owner_id,
+        primary_key: :id,
+        class_name: :Business
 
     # F I G V A P E R
 
