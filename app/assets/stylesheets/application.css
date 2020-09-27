@@ -16,21 +16,71 @@
 html, body {
     margin:0;
     padding:0;
+    font-family: helvetica;
+    background-color: #eeeeef;
 }
-.logged-out-nav {
+.nav-logged-out {
      margin-top: 25px;
      display: flex;
      justify-content: flex-end;
 }
 
-.logged-in-nav {
-     margin-top: 25px;
-     display: flex;
-     justify-content: flex-end;
+.nav-dropdown ul {
+    list-style-type: none;
+}
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 40px
+  
+}
+#dropdown-container {
+  color: gray;
+  font-size: 25px;
+}
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown-box {
+  position: absolute;
+  background-color: white;
+  width: 125px;
+  right: -5px;
+  top: 40px;
+  border-radius: 3px;
+  padding: 10px 15px 10px 15px;
+  z-index: 1;
 }
 
+.nav-dropdown-box li {
+  display: flex;
+  border-bottom: solid 1px gray;
+  justify-content: space-evenly;
+  font-size: 14px;
+}
+.nav-dropdown-box li:hover {
+  display: flex;
+  border-bottom: solid 1px gray;
+  justify-content: space-evenly;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: lightgray;
+}
+.nav-dropdown-box li:last-child {
+  border: none;
+}
+
+.nav-dropdown-box li i {
+  padding-top: 15px;
+}
+
+.gelplogo {
+  height: 50px;
+}
 .nav-links a {
-    font: bold 14px helvetica;
+  font: bold 14px helvetica;
   text-decoration: none;
   background-color: transparent;
   color: black;

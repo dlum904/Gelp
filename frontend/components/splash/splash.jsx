@@ -9,7 +9,10 @@ class Splash extends React.Component {
     render() {
         return (
             <div className="splash-main">
-                <div>Main Search Bar Component blasldjfHere</div>
+                <div className="main-logo">
+                <Link to="/"><img src={window.gelpLogoURL} /></Link>
+
+                </div>
             </div>
         )
     }

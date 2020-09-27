@@ -5,4 +5,15 @@
     height: 570px;
     background-position: 50%;
     background-color: #333;
+    filter: saturate(80%) brightness(77%);
+    display: flex;
+}
+
+.main-logo {
+    margin: 100px auto auto auto;
+
+}
+.main-logo img{
+    height: 125px;
+
 }

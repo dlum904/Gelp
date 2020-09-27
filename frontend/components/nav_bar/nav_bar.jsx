@@ -26,20 +26,32 @@ class NavBar extends React.Component {
 
     render() {
         return this.props.currentUser ? (
-            <div className="dropdown-nav">dropdown here
-                <button onBlur={this.handleBlur} onClick={this.handleClick}>
-                    <i>icon here</i>
-                    </button>
-                    {this.state.show ? (
-                        <ul>
-                            <li><i>icon here</i>About Me</li>
-                            <li><p onClick={this.props.logout}><i>icon here</i>Log Out</p></li>
-                        </ul>
-                    ) : null }
+            <div className="nav-logged-in">
+                <ul className="nav-list">
+                    <li>
+                        <Link to="/"><img className="gelplogo" src={window.gelpLogoURL} /></Link>
+                    </li>
+                    <li>
+                        Search Bar Here
+                    </li>
+                    <li>
+                        Write a Review
+                    </li>
+                    <li className="nav-dropdown">
+                        <i id="dropdown-container" className="fas fa-user-circle" onClick={this.handleClick}></i>
+                            {this.state.show ? (
+                                <ul className="nav-dropdown-box">
+                                    <li><i className="far fa-user-circle"></i><p>About Me</p></li>
+                                    <li onClick={this.props.logout}><i className="fas fa-sign-out-alt"></i><p>Log Out</p></li>
+                                </ul>
+                            ) : null }
+                    </li>
+                </ul>
+                    
             </div>
         ) : 
         (
-            <div className="logged-out-nav">
+            <div className="nav-logged-out">
                 <div className="nav-links">
                     <Link to="/login">Login</Link>
                     <Link to="/signup">Sign up</Link>
