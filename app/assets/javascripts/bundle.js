@@ -578,9 +578,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
           placeholder: "Password",
           onChange: this.update("password"),
           className: "form-input"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "forgot-pw"
-        }, "Forgot password?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           className: "submit",
           type: "submit",
           value: "Log In"

@@ -107,8 +107,6 @@ class SessionForm extends React.Component {
                                 className="form-input"
                             />
 
-                            <div className="forgot-pw">Forgot password?</div>
-
                             <input className="submit" type="submit" value="Log In"/>
 
                             <p className="session-form-foot">New to Gelp? <Link to="/signup">Sign Up</Link></p>
