@@ -10,9 +10,7 @@ export const fetchAllBusinesses = () => (dispatch) => {
 }
 
 export const fetchBusiness = (businessId) => (dispatch) => {
-    debugger
     return APIUtil.fetchBusiness(businessId).then((business) => {
-        debugger
         return dispatch(receiveBusiness(business));
     })
 }

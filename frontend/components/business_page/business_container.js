@@ -3,7 +3,7 @@ import Business from './business'
 import { fetchBusiness } from '../../actions/businesses_actions'
 
 const mSTP = (state, ownProps) => {
-    const business = state.entities.businesses[ownProps.match.params.id]
+    const business = state.entities.businesses[parseInt(ownProps.match.params.businessId)]
     return {
         business
     }

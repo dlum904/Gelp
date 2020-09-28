@@ -8,12 +8,11 @@ class Business extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchBusiness(Number(this.props.match.params.businessId))
+        this.props.fetchBusiness(parseInt(this.props.match.params.businessId))
+        debugger
     }
 
     render() {
-        console.log(this.props)
-        console.log(this.state)
         return (
             <div className="business-container">
                 <div>images here</div>

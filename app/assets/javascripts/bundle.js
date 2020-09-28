@@ -114,9 +114,7 @@ var fetchAllBusinesses = function fetchAllBusinesses() {
 };
 var fetchBusiness = function fetchBusiness(businessId) {
   return function (dispatch) {
-    debugger;
     return _util_businesses_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBusiness"](businessId).then(function (business) {
-      debugger;
       return dispatch(receiveBusiness(business));
     });
   };
@@ -312,13 +310,12 @@ var Business = /*#__PURE__*/function (_React$Component) {
   _createClass(Business, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchBusiness(Number(this.props.match.params.businessId));
+      this.props.fetchBusiness(parseInt(this.props.match.params.businessId));
+      debugger;
     }
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props);
-      console.log(this.state);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "business-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "images here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
@@ -349,7 +346,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state, ownProps) {
-  var business = state.entities.businesses[ownProps.match.params.id];
+  var business = state.entities.businesses[parseInt(ownProps.match.params.businessId)];
   return {
     business: business
   };
@@ -1309,6 +1306,11 @@ document.addEventListener("DOMContentLoaded", function () {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])(preloadedState);
     delete window.currentUser;
   } else {
+    // const preloadedState = {
+    //     entities: {
+    //         businesses: window.fetchAllBusinesses
+    //     }
+    // }
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
   }
 
@@ -1520,7 +1522,6 @@ var usersReducer = function usersReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      // console.log(newState);
       newState[action.currentUser.id] = action.currentUser;
       return newState;
 

@@ -18,6 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore(preloadedState);
         delete window.currentUser;
     } else {
+        // const preloadedState = {
+        //     entities: {
+        //         businesses: window.fetchAllBusinesses
+        //     }
+        // }
         store = configureStore();
     }
 

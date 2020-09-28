@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         resource :session, only: [:create, :destroy]
 
         resources :businesses, only: [:index, :show]
-        #   resources :photos, module: :businesses, only: [:index, :show, :create]
+        #   resources :photos only: [:index, :show, :create]
         # end
     end
 end
