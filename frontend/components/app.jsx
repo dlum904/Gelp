@@ -5,6 +5,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
+import BusinessContainer from './business_page/business_container';
 import Splash from './splash/splash';
 
 const App = () => (
@@ -13,9 +14,9 @@ const App = () => (
         <NavBarContainer />
         </header>
         <Switch>
-
             <AuthRoute path="/login" component={LogInFormContainer} />
             <AuthRoute path="/signup" component={SignUpFormContainer} />
+            <Route path="/businesses/:businessId" component={BusinessContainer} />
             <Route path="/" component={Splash} />
         </Switch>
 

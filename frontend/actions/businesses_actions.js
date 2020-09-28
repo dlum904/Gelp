@@ -5,19 +5,19 @@ export const RECEIVE_BUSINESS = 'RECEIVE_BUSINESS';
 
 export const fetchAllBusinesses = () => (dispatch) => {
     return APIUtil.fetchAllBusinesses().then((businesses) => {
-        debugger
         return dispatch(receiveAllBusinesses(businesses));
     })
 }
 
 export const fetchBusiness = (businessId) => (dispatch) => {
+    debugger
     return APIUtil.fetchBusiness(businessId).then((business) => {
+        debugger
         return dispatch(receiveBusiness(business));
     })
 }
 
 export const receiveAllBusinesses = (businesses) => {
-    debugger
     return {
         type: RECEIVE_ALL_BUSINESSES,
         businesses
