@@ -86,6 +86,56 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/businesses_actions.js":
+/*!************************************************!*\
+  !*** ./frontend/actions/businesses_actions.js ***!
+  \************************************************/
+/*! exports provided: RECEIVE_ALL_BUSINESSES, RECEIVE_BUSINESS, fetchAllBusinesses, fetchBusiness, receiveAllBusinesses, receiveBusiness */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_BUSINESSES", function() { return RECEIVE_ALL_BUSINESSES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_BUSINESS", function() { return RECEIVE_BUSINESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllBusinesses", function() { return fetchAllBusinesses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusiness", function() { return fetchBusiness; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllBusinesses", function() { return receiveAllBusinesses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveBusiness", function() { return receiveBusiness; });
+/* harmony import */ var _util_businesses_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/businesses_api_util */ "./frontend/util/businesses_api_util.js");
+
+var RECEIVE_ALL_BUSINESSES = 'RECEIVE_ALL_BUSINESSES';
+var RECEIVE_BUSINESS = 'RECEIVE_BUSINESS';
+var fetchAllBusinesses = function fetchAllBusinesses() {
+  return function (dispatch) {
+    return _util_businesses_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllBusinesses"]().then(function (businesses) {
+      debugger;
+      return dispatch(receiveAllBusinesses(businesses));
+    });
+  };
+};
+var fetchBusiness = function fetchBusiness(businessId) {
+  return function (dispatch) {
+    return _util_businesses_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchBusiness"](businessId).then(function (business) {
+      return dispatch(receiveBusiness(business));
+    });
+  };
+};
+var receiveAllBusinesses = function receiveAllBusinesses(businesses) {
+  debugger;
+  return {
+    type: RECEIVE_ALL_BUSINESSES,
+    businesses: businesses
+  };
+};
+var receiveBusiness = function receiveBusiness(business) {
+  return {
+    type: RECEIVE_BUSINESS,
+    business: business
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -1120,7 +1170,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _actions_businesses_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/businesses_actions */ "./frontend/actions/businesses_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1145,11 +1197,48 @@ document.addEventListener("DOMContentLoaded", function () {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"])();
   }
 
+  window.dispatch = store.dispatch;
   window.getState = store.getState;
+  window.fetchAllBusinesses = _actions_businesses_actions__WEBPACK_IMPORTED_MODULE_4__["fetchAllBusinesses"];
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);
-}); // Oops, something went wrong.Please try again.
+});
+
+/***/ }),
+
+/***/ "./frontend/reducers/businesses_reducer.js":
+/*!*************************************************!*\
+  !*** ./frontend/reducers/businesses_reducer.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_businesses_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/businesses_actions */ "./frontend/actions/businesses_actions.js");
+
+
+var businessesReducer = function businessesReducer() {
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldState);
+  var newState = Object.assign({}, oldState);
+
+  switch (action.type) {
+    case _actions_businesses_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_BUSINESSES"]:
+      return action.businesses;
+
+    case _actions_businesses_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_BUSINESS"]:
+      newState[action.business.id] = action.business;
+      return newState;
+
+    default:
+      return oldState;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (businessesReducer);
 
 /***/ }),
 
@@ -1164,10 +1253,13 @@ document.addEventListener("DOMContentLoaded", function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
+/* harmony import */ var _businesses_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./businesses_reducer */ "./frontend/reducers/businesses_reducer.js");
+
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  businesses: _businesses_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -1350,6 +1442,32 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/businesses_api_util.js":
+/*!**********************************************!*\
+  !*** ./frontend/util/businesses_api_util.js ***!
+  \**********************************************/
+/*! exports provided: fetchAllBusinesses, fetchBusiness */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllBusinesses", function() { return fetchAllBusinesses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchBusiness", function() { return fetchBusiness; });
+var fetchAllBusinesses = function fetchAllBusinesses() {
+  return $.ajax({
+    method: "GET",
+    url: "api/businesses"
+  });
+};
+var fetchBusiness = function fetchBusiness(id) {
+  return $.ajax({
+    method: "GET",
+    url: "api/businesses/".concat(id)
+  });
+};
 
 /***/ }),
 

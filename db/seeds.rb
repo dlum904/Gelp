@@ -11,6 +11,7 @@ ActiveRecord::Base.transaction do
     User.destroy_all
 
     user1 = User.create(
+        id: 1,
         first_name: "doge",
         last_name: "doggo",
         email: "doge@test.com",
@@ -18,4 +19,19 @@ ActiveRecord::Base.transaction do
         zip_code: 1234
     )
 
+    Business.destroy_all
+
+    business1 =  Business.create(
+        id: 1,
+        business_name: "App Academy",
+        city: "New York",
+        state: "NY",
+        business_zip_code: 10011,
+        category: "pizza",
+        phone: "(415) 935-3408",
+        website: "www.appacademy.io",
+        street_address: "90 5th Ave",
+        business_email: "psecunda@appacademy.io",
+        owner_id: 1
+    )
 end
