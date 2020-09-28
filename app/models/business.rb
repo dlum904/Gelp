@@ -11,5 +11,5 @@ class Business < ApplicationRecord
         primary_key: :id,
         class_name: :User
 
-    # has_many :photos, as :imageable
+    has_many :photos, as: :imageable
 end

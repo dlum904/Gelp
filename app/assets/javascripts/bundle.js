@@ -298,27 +298,38 @@ var Business = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Business);
 
   function Business(props) {
-    var _this;
-
     _classCallCheck(this, Business);
 
-    _this = _super.call(this, props);
-    _this.state = _this.props.business;
-    return _this;
+    return _super.call(this, props);
   }
 
   _createClass(Business, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      // this.props.fetchAllBusinesses();
       this.props.fetchBusiness(parseInt(this.props.match.params.businessId));
-      debugger;
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "business-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "images here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null));
+      if (this.props.business) {
+        var _this$props$business = this.props.business,
+            business_name = _this$props$business.business_name,
+            category = _this$props$business.category;
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "business container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "images here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "business title-block"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, business_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "average review rating here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "business title-block category"
+        }, category), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "business title-block hours"
+        }, "open/closed and hours"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "links to write a review or add photo")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "business location-hours"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Location & Hours"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Google's map here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "hours open here")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "business reviews"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Reviews")));
+      } else return null;
     }
   }]);
 
@@ -356,7 +367,20 @@ var mDTP = function mDTP(dispatch) {
   return {
     fetchBusiness: function fetchBusiness(businessId) {
       return dispatch(Object(_actions_businesses_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusiness"])(businessId));
-    }
+    },
+    fetchAllBusinesses: function (_fetchAllBusinesses) {
+      function fetchAllBusinesses() {
+        return _fetchAllBusinesses.apply(this, arguments);
+      }
+
+      fetchAllBusinesses.toString = function () {
+        return _fetchAllBusinesses.toString();
+      };
+
+      return fetchAllBusinesses;
+    }(function () {
+      return dispatch(fetchAllBusinesses());
+    })
   };
 };
 
@@ -1256,7 +1280,16 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         to: "/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.gelpLogoURL
-      }))));
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "main-search",
+        action: "blah"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        placeholder: "Search..",
+        name: "search"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit"
+      }, "Submit")));
     }
   }]);
 

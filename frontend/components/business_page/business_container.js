@@ -13,6 +13,9 @@ const mDTP = (dispatch) => {
     return {
         fetchBusiness: (businessId) => {
             return dispatch(fetchBusiness(businessId))
+        },
+        fetchAllBusinesses: () => {
+            return dispatch(fetchAllBusinesses())
         }
     }
 }
