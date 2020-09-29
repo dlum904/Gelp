@@ -19,6 +19,15 @@ ActiveRecord::Base.transaction do
         zip_code: 1234
     )
 
+    user2 = User.create(
+        id: 3,
+        first_name: "Ash",
+        last_name: "Ketchum",
+        email: "pokemon@test.com",
+        password: "password1",
+        zip_code: 1234
+    )
+
     Business.destroy_all
 
     business1 =  Business.create(
@@ -35,44 +44,104 @@ ActiveRecord::Base.transaction do
         owner_id: 1
     )
 
+    business2 =  Business.create(
+        id: 2,
+        business_name: "Umi Sushi",
+        city: "Fresh Meadows",
+        state: "NY",
+        business_zip_code: 11366,
+        street_address: "177-13 Union Tpke",
+        category_1: "Japanese",
+        category_2: "Sushi Bars",
+        phone: "(718) 969-5668",
+        website: "http://umisushifreshmeadows.cafecityguide.website",
+        business_email: "umisushi@notanemail.com",
+        owner_id: 3
+    )
+
     Schedule.destroy_all
 
-    Schedule.create(
-            monday: true,
+        Schedule.create(
+            day: "monday",
             open: "9:00 am",
             close: "6:00 pm",
             business_id: 1
         )
 
-    Schedule.create(
-        tuesday: true,
-        open: "9:00 am",
-        close: "6:00 pm",
-        business_id: 1
+        Schedule.create(
+            day: "tuesday",
+            open: "9:00 am",
+            close: "6:00 pm",
+            business_id: 1
+        )
+        Schedule.create(
+            day: "wednesday",
+            open: "9:00 am",
+            close: "6:00 pm",
+            business_id: 1
+        )
+        Schedule.create(
+            day: "thursday",
+            open: "9:00 am",
+            close: "6:00 pm",
+            business_id: 1
         )
 
-    Schedule.create(
-        wednesday: true,
-        open: "9:00 am",
-        close: "6:00 pm",
-        business_id: 1
-    )
-    Schedule.create(
-        thursday: true,
-        open: "9:00 am",
-        close: "6:00 pm",
-        business_id: 1
-    )
-    Schedule.create(
-        friday: true,
-        open: "9:00 am",
-        close: "6:00 pm",
-        business_id: 1
-    )
-    Schedule.create(
-        saturday: true,
-        open: "9:00 am",
-        close: "3:00 pm",
-        business_id: 1
-    )
+        Schedule.create(
+            day: "friday",
+            open: "9:00 am",
+            close: "6:00 pm",
+            business_id: 1
+        )
+        Schedule.create(
+            day: "saturday",
+            open: "9:00 am",
+            close: "3:00 pm",
+            business_id: 1
+        )
+
+        Schedule.create(
+            day: "monday",
+            open: "11:45 am",
+            close: "8:00 pm",
+            business_id: 2
+        )
+
+        Schedule.create(
+            day: "tuesday",
+            open: "11:45 am",
+            close: "8:00 pm",
+            business_id: 2
+        )
+        Schedule.create(
+            day: "wednesday",
+            open: "11:45 am",
+            close: "8:00 pm",
+            business_id: 2
+        )
+        Schedule.create(
+            day: "thursday",
+            open: "11:45 am",
+            close: "8:00 pm",
+            business_id: 2
+        )
+
+        Schedule.create(
+            day: "friday",
+            open: "11:45 am",
+            close: "8:30 pm",
+            business_id: 2
+        )
+        Schedule.create(
+            day: "saturday",
+            open: "11:45 am",
+            close: "8:00 pm",
+            business_id: 2
+        )
+        Schedule.create(
+            day: "sunday",
+            open: "1:45 pm",
+            close: "8:00 pm",
+            business_id: 2
+        )
 end

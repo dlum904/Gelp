@@ -134,6 +134,37 @@ var receiveBusiness = function receiveBusiness(business) {
 
 /***/ }),
 
+/***/ "./frontend/actions/schedules_actions.js":
+/*!***********************************************!*\
+  !*** ./frontend/actions/schedules_actions.js ***!
+  \***********************************************/
+/*! exports provided: RECEIVE_SCHEDULES, receiveSchedules, fetchSchedules */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SCHEDULES", function() { return RECEIVE_SCHEDULES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveSchedules", function() { return receiveSchedules; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSchedules", function() { return fetchSchedules; });
+/* harmony import */ var _util_schedule_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/schedule_api_util */ "./frontend/util/schedule_api_util.js");
+
+var RECEIVE_SCHEDULES = 'RECEIVE_SCHEDULES';
+var receiveSchedules = function receiveSchedules(schedules) {
+  return {
+    type: RECEIVE_SCHEDULES,
+    schedules: schedules
+  };
+};
+var fetchSchedules = function fetchSchedules(businessId) {
+  return function (dispatch) {
+    return _util_schedule_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchSchedules"](businessId).then(function (schedules) {
+      return dispatch(receiveSchedules(schedules));
+    });
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/session_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/session_actions.js ***!
@@ -306,27 +337,38 @@ var Business = /*#__PURE__*/function (_React$Component) {
   _createClass(Business, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // this.props.fetchAllBusinesses();
-      this.props.fetchBusiness(parseInt(this.props.match.params.businessId));
+      this.props.fetchSchedules(this.props.match.params.businessId);
+      this.props.fetchBusiness(this.props.match.params.businessId);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.match.params.businessId !== this.props.match.params.businessId) {
+        this.props.fetchSchedules(this.props.match.params.businessId);
+        this.props.fetchBusiness(this.props.match.params.businessId);
+      }
     }
   }, {
     key: "render",
     value: function render() {
-      if (this.props.business) {
+      if (this.props.business && this.props.schedules.monday) {
         var _this$props$business = this.props.business,
             business_name = _this$props$business.business_name,
-            category_1 = _this$props$business.category_1;
+            category_1 = _this$props$business.category_1,
+            category_2 = _this$props$business.category_2,
+            category_3 = _this$props$business.category_3;
+        var categories = category_2 ? category_3 ? category_1 + category_2 + category_3 : category_1 + category_2 : category_1;
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "business container"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "images here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "business title-block"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, business_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "average review rating here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "business title-block category"
-        }, category_1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, categories), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "business title-block hours"
         }, "open/closed and hours"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "links to write a review or add photo")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "business location-hours"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Location & Hours"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Google's map here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "hours open here")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Location & Hours"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Google's map here"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Mon ", this.props.schedules.monday.open, " - ", this.props.schedules.monday.close), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Tue ", this.props.schedules.tuesday.open, " - ", this.props.schedules.tuesday.close), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Wed ", this.props.schedules.wednesday.open, " - ", this.props.schedules.wednesday.close), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Thur ", this.props.schedules.thursday.open, " - ", this.props.schedules.thursday.close), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Fri ", this.props.schedules.friday.open, " - ", this.props.schedules.friday.close), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Sat ", this.props.schedules.saturday.open, " - ", this.props.schedules.saturday.close)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "business reviews"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Reviews")));
       } else return null;
@@ -352,14 +394,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _business__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./business */ "./frontend/components/business_page/business.jsx");
 /* harmony import */ var _actions_businesses_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/businesses_actions */ "./frontend/actions/businesses_actions.js");
+/* harmony import */ var _actions_schedules_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/schedules_actions */ "./frontend/actions/schedules_actions.js");
+
 
 
 
 
 var mSTP = function mSTP(state, ownProps) {
   var business = state.entities.businesses[parseInt(ownProps.match.params.businessId)];
+  var schedules = state.entities.schedules;
   return {
-    business: business
+    business: business,
+    schedules: schedules
   };
 };
 
@@ -368,19 +414,9 @@ var mDTP = function mDTP(dispatch) {
     fetchBusiness: function fetchBusiness(businessId) {
       return dispatch(Object(_actions_businesses_actions__WEBPACK_IMPORTED_MODULE_2__["fetchBusiness"])(businessId));
     },
-    fetchAllBusinesses: function (_fetchAllBusinesses) {
-      function fetchAllBusinesses() {
-        return _fetchAllBusinesses.apply(this, arguments);
-      }
-
-      fetchAllBusinesses.toString = function () {
-        return _fetchAllBusinesses.toString();
-      };
-
-      return fetchAllBusinesses;
-    }(function () {
-      return dispatch(fetchAllBusinesses());
-    })
+    fetchSchedules: function fetchSchedules(businessId) {
+      return dispatch(Object(_actions_schedules_actions__WEBPACK_IMPORTED_MODULE_3__["fetchSchedules"])(businessId));
+    }
   };
 };
 
@@ -1316,7 +1352,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _actions_businesses_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/businesses_actions */ "./frontend/actions/businesses_actions.js");
+/* harmony import */ var _actions_schedules_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/schedules_actions */ "./frontend/actions/schedules_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1349,8 +1387,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.dispatch = store.dispatch;
   window.getState = store.getState;
-  window.fetchAllBusinesses = _actions_businesses_actions__WEBPACK_IMPORTED_MODULE_4__["fetchAllBusinesses"];
-  window.fetchBusiness = _actions_businesses_actions__WEBPACK_IMPORTED_MODULE_4__["fetchBusiness"];
+  window.fetchBusinesses = _actions_businesses_actions__WEBPACK_IMPORTED_MODULE_4__["fetchAllBusinesses"];
+  window.fetchSchedules = _actions_schedules_actions__WEBPACK_IMPORTED_MODULE_5__["fetchSchedules"];
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
   }), root);
@@ -1405,12 +1443,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _businesses_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./businesses_reducer */ "./frontend/reducers/businesses_reducer.js");
+/* harmony import */ var _schedules_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./schedules_reducer */ "./frontend/reducers/schedules_reducer.js");
+
 
 
 
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
-  businesses: _businesses_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
+  businesses: _businesses_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
+  schedules: _schedules_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -1459,6 +1500,36 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
   errors: _errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/schedules_reducer.js":
+/*!************************************************!*\
+  !*** ./frontend/reducers/schedules_reducer.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_schedules_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/schedules_actions */ "./frontend/actions/schedules_actions.js");
+
+
+var schedulesReducer = function schedulesReducer() {
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldState);
+
+  switch (action.type) {
+    case _actions_schedules_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SCHEDULES"]:
+      return action.schedules;
+
+    default:
+      return oldState;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (schedulesReducer);
 
 /***/ }),
 
@@ -1662,6 +1733,25 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var AuthRoute = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Auth));
+
+/***/ }),
+
+/***/ "./frontend/util/schedule_api_util.js":
+/*!********************************************!*\
+  !*** ./frontend/util/schedule_api_util.js ***!
+  \********************************************/
+/*! exports provided: fetchSchedules */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchSchedules", function() { return fetchSchedules; });
+var fetchSchedules = function fetchSchedules(businessId) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/businesses/".concat(businessId, "/schedules")
+  });
+};
 
 /***/ }),
 

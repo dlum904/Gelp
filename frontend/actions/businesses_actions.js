@@ -3,6 +3,7 @@ import * as APIUtil from '../util/businesses_api_util';
 export const RECEIVE_ALL_BUSINESSES = 'RECEIVE_ALL_BUSINESSES';
 export const RECEIVE_BUSINESS = 'RECEIVE_BUSINESS';
 
+
 export const fetchAllBusinesses = () => (dispatch) => {
     return APIUtil.fetchAllBusinesses().then((businesses) => {
         return dispatch(receiveAllBusinesses(businesses));
@@ -14,6 +15,7 @@ export const fetchBusiness = (businessId) => (dispatch) => {
         return dispatch(receiveBusiness(business));
     })
 }
+
 
 export const receiveAllBusinesses = (businesses) => {
     return {
@@ -28,3 +30,5 @@ export const receiveBusiness = (business) => {
         business
     }
 }
+
+

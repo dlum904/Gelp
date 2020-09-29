@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import * as BusinessActions from './actions/businesses_actions';
+import * as ScheduleActions from './actions/schedules_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
@@ -28,8 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.dispatch = store.dispatch;
     window.getState = store.getState;
-    window.fetchAllBusinesses = BusinessActions.fetchAllBusinesses;
-    window.fetchBusiness = BusinessActions.fetchBusiness;
+    window.fetchBusinesses = BusinessActions.fetchAllBusinesses;
+    window.fetchSchedules  = ScheduleActions.fetchSchedules;
 
     ReactDOM.render(<Root store={store} />, root);
 });

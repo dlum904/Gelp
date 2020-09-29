@@ -1,7 +1,5 @@
 import { RECEIVE_BUSINESS, RECEIVE_ALL_BUSINESSES } from '../actions/businesses_actions';
 
-
-
 const businessesReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     let newState = Object.assign({}, oldState);
@@ -15,5 +13,6 @@ const businessesReducer = (oldState = {}, action) => {
             return oldState;
     }
 }
+
 
 export default businessesReducer;

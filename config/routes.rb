@@ -5,6 +5,7 @@
 #                  api_user POST   /api/user(.:format)                                                                      api/users#create {:format=>:json}
 #               api_session DELETE /api/session(.:format)                                                                   api/sessions#destroy {:format=>:json}
 #                           POST   /api/session(.:format)                                                                   api/sessions#create {:format=>:json}
+#    api_business_schedules GET    /api/businesses/:business_id/schedules(.:format)                                         api/schedules#index {:format=>:json}
 #            api_businesses GET    /api/businesses(.:format)                                                                api/businesses#index {:format=>:json}
 #              api_business GET    /api/businesses/:id(.:format)                                                            api/businesses#show {:format=>:json}
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
