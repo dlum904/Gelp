@@ -1,5 +1,5 @@
 class Business < ApplicationRecord
-    validates :business_name, :city, :state, :business_zip_code, :category, :phone, :street_address, :owner_id, presence: true
+    validates :business_name, :city, :state, :business_zip_code, :phone, :street_address, :owner_id, presence: true
 
     # has_many :reviews,
     #     foreign_key: :business_id,
@@ -12,4 +12,9 @@ class Business < ApplicationRecord
         class_name: :User
 
     has_many :photos, as: :imageable
+
+    has_many :schedules,
+        primary_key: :id,
+        foreign_key: :business_id,
+        class_name: :Business
 end

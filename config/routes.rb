@@ -20,7 +20,9 @@ Rails.application.routes.draw do
         resource :user, only: [:create]
         resource :session, only: [:create, :destroy]
 
-        resources :businesses, only: [:index, :show]
+        resources :businesses, only: [:index, :show] do
+          resources :schedules, only: [:index]
+        end
         #   resources :photos only: [:index, :show, :create]
         # end
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_000339) do
+ActiveRecord::Schema.define(version: 2020_09_29_002411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,12 +22,16 @@ ActiveRecord::Schema.define(version: 2020_09_28_000339) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "business_zip_code"
-    t.string "category"
     t.string "phone"
     t.string "website"
     t.string "street_address"
     t.string "business_email"
     t.integer "owner_id"
+    t.string "category_1"
+    t.string "category_2"
+    t.string "category_3"
+    t.string "lat"
+    t.string "lng"
     t.index ["owner_id"], name: "index_businesses_on_owner_id"
   end
 
@@ -37,6 +41,22 @@ ActiveRecord::Schema.define(version: 2020_09_28_000339) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["imageable_type", "imageable_id"], name: "index_photos_on_imageable_type_and_imageable_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.boolean "monday"
+    t.boolean "tuesday"
+    t.boolean "wednesday"
+    t.boolean "thursday"
+    t.boolean "friday"
+    t.string "open"
+    t.string "close"
+    t.integer "business_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "saturday"
+    t.boolean "sunday"
+    t.index ["business_id"], name: "index_schedules_on_business_id"
   end
 
   create_table "users", force: :cascade do |t|

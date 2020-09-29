@@ -27,11 +27,52 @@ ActiveRecord::Base.transaction do
         city: "New York",
         state: "NY",
         business_zip_code: 10011,
-        category: "pizza",
+        category_1: "pizza",
         phone: "(415) 935-3408",
         website: "www.appacademy.io",
         street_address: "90 5th Ave",
         business_email: "psecunda@appacademy.io",
         owner_id: 1
+    )
+
+    Schedule.destroy_all
+
+    Schedule.create(
+            monday: true,
+            open: "9:00 am",
+            close: "6:00 pm",
+            business_id: 1
+        )
+
+    Schedule.create(
+        tuesday: true,
+        open: "9:00 am",
+        close: "6:00 pm",
+        business_id: 1
+        )
+
+    Schedule.create(
+        wednesday: true,
+        open: "9:00 am",
+        close: "6:00 pm",
+        business_id: 1
+    )
+    Schedule.create(
+        thursday: true,
+        open: "9:00 am",
+        close: "6:00 pm",
+        business_id: 1
+    )
+    Schedule.create(
+        friday: true,
+        open: "9:00 am",
+        close: "6:00 pm",
+        business_id: 1
+    )
+    Schedule.create(
+        saturday: true,
+        open: "9:00 am",
+        close: "3:00 pm",
+        business_id: 1
     )
 end

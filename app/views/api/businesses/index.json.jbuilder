@@ -6,7 +6,9 @@
             :city,
             :state,
             :business_zip_code,
-            :category,
+            :category_1,
+            :category_2,
+            :category_3,
             :phone,
             :street_address,
             :owner_id

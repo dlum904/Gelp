@@ -13,7 +13,7 @@ class Business extends React.Component {
 
     render() {
         if (this.props.business) {
-           let { business_name, category } = this.props.business
+           let { business_name, category_1 } = this.props.business
             return (
                 <div className="business container">
                     <div>images here</div>
@@ -23,7 +23,7 @@ class Business extends React.Component {
                             average review rating here
                         </div>
                         <div className="business title-block category">
-                           {category}
+                           {category_1}
                         </div>
                         <div className="business title-block hours">
                             open/closed and hours
