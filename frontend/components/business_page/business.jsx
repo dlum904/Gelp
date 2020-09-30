@@ -37,9 +37,13 @@ class Business extends React.Component {
                         <div className="business title-block hours">
                             open/closed and hours
                         </div>
-                        <div>
-                            links to write a review or add photo
-                        </div>
+                        <ul>
+                            <li>
+                                <form>
+                                    <input type="file"/>
+                                </form>
+                            </li>
+                        </ul>
                     </div>
 
                     <div className="business location-hours">

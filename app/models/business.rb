@@ -11,7 +11,7 @@ class Business < ApplicationRecord
         primary_key: :id,
         class_name: :User
 
-    has_many :photos, as: :imageable
+    has_many_attached :photos
 
     has_many :schedules,
         primary_key: :id,

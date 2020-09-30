@@ -33,7 +33,8 @@ class Api::BusinessesController < ApplicationController
             :lng,
             :phone,
             :street_address,
-            :owner_id
+            :owner_id,
+            photos: []
         )
     end
 end
