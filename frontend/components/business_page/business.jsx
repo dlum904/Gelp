@@ -25,14 +25,16 @@ class Business extends React.Component {
         
         let currentDay = ""
         const daysSchedule = this.props.schedules
+
         daysArray.forEach((days) => {
             
             if (days.includes(date.toLowerCase())) {
-                
+
                 currentDay = days
             }
         })
-        return currentDay
+
+        return `${this.props.schedules[currentDay].open} -  ${this.props.schedules[currentDay].close}`
     }
 
     render() {
@@ -56,7 +58,7 @@ class Business extends React.Component {
                            {categories}
                         </div>
                         <div className="business title-block hours">
-                            {this.open()}
+                            <p>Open  {this.open()}</p>
                         </div>
                         <ul>
                             <li className="addphoto-button">

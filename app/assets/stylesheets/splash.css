@@ -3,6 +3,7 @@
     height:100%;
     object-fit: cover;
     overflow: hidden;
+    filter: brightness(75%);
 }
 
 .splash-background {
@@ -31,6 +32,7 @@ margin: 100px auto 25px auto;
 .main-logo img{
     height: 125px;
     width: 250px;
+    filter: brightness(100%);
 
 }
 

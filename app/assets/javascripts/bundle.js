@@ -134,6 +134,64 @@ var receiveBusiness = function receiveBusiness(business) {
 
 /***/ }),
 
+/***/ "./frontend/actions/reviews_actions.js":
+/*!*********************************************!*\
+  !*** ./frontend/actions/reviews_actions.js ***!
+  \*********************************************/
+/*! exports provided: RECEIVE_ALL_REVIEWS, RECEIVE_REVIEW, CREATE_REVIEW, fetchAllReviews, fetchReview, createReview, receiveAllReviews, receiveReview */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_REVIEWS", function() { return RECEIVE_ALL_REVIEWS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_REVIEW", function() { return RECEIVE_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_REVIEW", function() { return CREATE_REVIEW; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllReviews", function() { return fetchAllReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReview", function() { return fetchReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveAllReviews", function() { return receiveAllReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveReview", function() { return receiveReview; });
+/* harmony import */ var _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/reviews_api_util */ "./frontend/util/reviews_api_util.js");
+
+var RECEIVE_ALL_REVIEWS = 'RECEIVE_ALL_REVIEWS';
+var RECEIVE_REVIEW = 'RECEIVE_REVIEW';
+var CREATE_REVIEW = 'CREATE_REVIEW';
+var fetchAllReviews = function fetchAllReviews(businessId) {
+  return function (dispatch) {
+    return _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllReviews"](businessId).then(function (reviews) {
+      return dispatch(receiveAllReviews(reviews));
+    });
+  };
+};
+var fetchReview = function fetchReview(businessId, reviewId) {
+  return function (dispatch) {
+    return _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchReview"](businessId, reviewId).then(function (review) {
+      return dispatch(receiveReview(review));
+    });
+  };
+};
+var createReview = function createReview(review, businessId) {
+  return function (dispatch) {
+    return _util_reviews_api_util__WEBPACK_IMPORTED_MODULE_0__["createReview"](review, businessId).then(function (review) {
+      return dispatch(receiveReview(review));
+    });
+  };
+};
+var receiveAllReviews = function receiveAllReviews(reviews) {
+  return {
+    type: RECEIVE_ALL_REVIEWS,
+    reviews: reviews
+  };
+};
+var receiveReview = function receiveReview(review) {
+  return {
+    type: RECEIVE_REVIEW,
+    review: review
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/schedules_actions.js":
 /*!***********************************************!*\
   !*** ./frontend/actions/schedules_actions.js ***!
@@ -366,7 +424,7 @@ var Business = /*#__PURE__*/function (_React$Component) {
           currentDay = days;
         }
       });
-      return currentDay;
+      return "".concat(this.props.schedules[currentDay].open, " -  ").concat(this.props.schedules[currentDay].close);
     }
   }, {
     key: "render",
@@ -398,7 +456,7 @@ var Business = /*#__PURE__*/function (_React$Component) {
           className: "business title-block category"
         }, categories), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "business title-block hours"
-        }, this.open()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Open  ", this.open())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "addphoto-button"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/businesses/".concat(id, "/upload")
@@ -1730,7 +1788,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _actions_businesses_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./actions/businesses_actions */ "./frontend/actions/businesses_actions.js");
 /* harmony import */ var _actions_schedules_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/schedules_actions */ "./frontend/actions/schedules_actions.js");
+/* harmony import */ var _actions_reviews_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./actions/reviews_actions */ "./frontend/actions/reviews_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1760,6 +1820,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.dispatch = store.dispatch;
   window.getState = store.getState;
   window.fetchBusinesses = _actions_businesses_actions__WEBPACK_IMPORTED_MODULE_4__["fetchAllBusinesses"];
+  window.fetchReviews = _actions_reviews_actions__WEBPACK_IMPORTED_MODULE_6__["fetchAllReviews"];
   window.fetchSchedules = _actions_schedules_actions__WEBPACK_IMPORTED_MODULE_5__["fetchSchedules"];
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
@@ -1816,6 +1877,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users_reducer */ "./frontend/reducers/users_reducer.js");
 /* harmony import */ var _businesses_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./businesses_reducer */ "./frontend/reducers/businesses_reducer.js");
 /* harmony import */ var _schedules_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./schedules_reducer */ "./frontend/reducers/schedules_reducer.js");
+/* harmony import */ var _reviews_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reviews_reducer */ "./frontend/reducers/reviews_reducer.js");
+
 
 
 
@@ -1823,7 +1886,8 @@ __webpack_require__.r(__webpack_exports__);
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   businesses: _businesses_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  schedules: _schedules_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
+  schedules: _schedules_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  reviews: _reviews_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -1846,6 +1910,43 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
   session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
+
+/***/ }),
+
+/***/ "./frontend/reducers/reviews_reducer.js":
+/*!**********************************************!*\
+  !*** ./frontend/reducers/reviews_reducer.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_reviews_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/reviews_actions */ "./frontend/actions/reviews_actions.js");
+
+
+var reviewsReducer = function reviewsReducer() {
+  var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(oldState);
+  var newState = Object.assign({}, oldState);
+
+  switch (action.type) {
+    case _actions_reviews_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_REVIEWS"]:
+      return action.reviews;
+
+    case _actions_reviews_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_REVIEW"]:
+      newState[action.review.id] = action.review;
+      return newState;
+    // case CREATE_REVIEW:
+    //     action[action.review.id] = action.review
+
+    default:
+      return oldState;
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (reviewsReducer);
 
 /***/ }),
 
@@ -2059,6 +2160,42 @@ var fetchBusiness = function fetchBusiness(id) {
   return $.ajax({
     method: "GET",
     url: "api/businesses/".concat(id)
+  });
+};
+
+/***/ }),
+
+/***/ "./frontend/util/reviews_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/reviews_api_util.js ***!
+  \*******************************************/
+/*! exports provided: fetchAllReviews, fetchReview, createReview */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllReviews", function() { return fetchAllReviews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchReview", function() { return fetchReview; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createReview", function() { return createReview; });
+var fetchAllReviews = function fetchAllReviews(businessId) {
+  return $.ajax({
+    method: "GET",
+    url: "api/businesses/".concat(businessId, "/reviews")
+  });
+};
+var fetchReview = function fetchReview(businessId, reviewId) {
+  return $.ajax({
+    method: "GET",
+    url: "api/businesses/".concat(businessId, "/reviews/").concat(reviewId)
+  });
+};
+var createReview = function createReview(review, businessId) {
+  return $.ajax({
+    method: "POST",
+    url: "api/businesses/".concat(businessId, "/reviews"),
+    data: {
+      review: review
+    }
   });
 };
 

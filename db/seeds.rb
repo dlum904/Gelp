@@ -144,4 +144,11 @@ ActiveRecord::Base.transaction do
             close: "8:00 pm",
             business_id: 2
         )
+
+    review1 = Review.create(
+            body: "This place is AWESOME",
+            rating: 5,
+            author_id: 3,
+            business_id: 1 
+        )
 end
