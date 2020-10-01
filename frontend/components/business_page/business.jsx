@@ -5,7 +5,6 @@ class Business extends React.Component {
     constructor(props) {
         super(props)
 
-        // this.open = this.open.bind(this)
     }
 
     componentDidMount() {
@@ -20,19 +19,21 @@ class Business extends React.Component {
         } 
     }
 
-    // open() {
-    //     const date = new Date().toDateString().split(" ")[0]
-    //     const daysArray = Object.keys(this.props.schedules)
-
-    //     const currentDay = []
-    //     daysArray.forEach((day) => {
-    //         if (day.includes(date.toLowerCase())) {
-    //             currentDay.push(day);
-    //         }
-    //     })
-   
-       
-    // }
+    open() {
+        const date = new Date().toDateString().split(" ")[0]
+        const daysArray = Object.keys(this.props.schedules)
+        
+        let currentDay = ""
+        const daysSchedule = this.props.schedules
+        daysArray.forEach((days) => {
+            
+            if (days.includes(date.toLowerCase())) {
+                
+                currentDay = days
+            }
+        })
+        return currentDay
+    }
 
     render() {
         if (this.props.business && this.props.schedules.monday) {
@@ -55,7 +56,7 @@ class Business extends React.Component {
                            {categories}
                         </div>
                         <div className="business title-block hours">
-        
+                            {this.open()}
                         </div>
                         <ul>
                             <li className="addphoto-button">

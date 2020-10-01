@@ -12,6 +12,11 @@ class User < ApplicationRecord
         primary_key: :id,
         class_name: :Business
 
+    has_many :reviews,
+        foreign_key: :author_id,
+        primary_key: :id,
+        class_name: :Review
+
     # F I G V A P E R
 
     attr_reader :password

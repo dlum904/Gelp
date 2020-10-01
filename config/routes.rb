@@ -22,6 +22,7 @@ Rails.application.routes.draw do
         resource :session, only: [:create, :destroy]
 
         resources :businesses, only: [:index, :show, :update] do
+          resources :reviews, only: [:index, :show, :create]
           resources :schedules, only: [:index]
         end
         #   resources :photos only: [:index, :show, :create]

@@ -19,11 +19,7 @@ html, body {
     font-family: helvetica;
     background-color: #eeeeef;
 }
-.nav-logged-out {
-     margin-top: 25px;
-     display: flex;
-     justify-content: flex-end;
-}
+
 
 .nav-dropdown ul {
     list-style-type: none;
@@ -35,6 +31,13 @@ html, body {
   align-items: center;
   margin-right: 40px
   
+}
+
+.nav-logged-out-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 #dropdown-container {
   color: gray;

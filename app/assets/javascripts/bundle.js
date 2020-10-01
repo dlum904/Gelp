@@ -337,7 +337,7 @@ var Business = /*#__PURE__*/function (_React$Component) {
   function Business(props) {
     _classCallCheck(this, Business);
 
-    return _super.call(this, props); // this.open = this.open.bind(this)
+    return _super.call(this, props);
   }
 
   _createClass(Business, [{
@@ -353,17 +353,21 @@ var Business = /*#__PURE__*/function (_React$Component) {
         this.props.fetchSchedules(this.props.match.params.businessId);
         this.props.fetchBusiness(this.props.match.params.businessId);
       }
-    } // open() {
-    //     const date = new Date().toDateString().split(" ")[0]
-    //     const daysArray = Object.keys(this.props.schedules)
-    //     const currentDay = []
-    //     daysArray.forEach((day) => {
-    //         if (day.includes(date.toLowerCase())) {
-    //             currentDay.push(day);
-    //         }
-    //     })
-    // }
-
+    }
+  }, {
+    key: "open",
+    value: function open() {
+      var date = new Date().toDateString().split(" ")[0];
+      var daysArray = Object.keys(this.props.schedules);
+      var currentDay = "";
+      var daysSchedule = this.props.schedules;
+      daysArray.forEach(function (days) {
+        if (days.includes(date.toLowerCase())) {
+          currentDay = days;
+        }
+      });
+      return currentDay;
+    }
   }, {
     key: "render",
     value: function render() {
@@ -394,7 +398,7 @@ var Business = /*#__PURE__*/function (_React$Component) {
           className: "business title-block category"
         }, categories), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "business title-block hours"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        }, this.open()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "addphoto-button"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/businesses/".concat(id, "/upload")
@@ -753,19 +757,19 @@ var NavBar = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Log Out"))) : null))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-logged-out"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "nav-list"
+        className: "nav-logged-out-list"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "gelplogo",
         src: window.gelpLogoURL
-      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-links"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/login"
       }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/signup"
-      }, "Sign up")));
+      }, "Sign up")))));
     }
   }]);
 
@@ -904,21 +908,23 @@ var SearchBox = /*#__PURE__*/function (_React$Component) {
       this.setState({
         searchField: e.target.value
       });
-      console.log(this.props);
+      debugger;
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "search-box",
-        type: "search",
-        placeholder: "pizza, coffee, sushi...",
-        onChange: this.handleChange
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "submit"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-search"
-      }))));
+      if (this.props.businesses) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "search-box",
+          type: "search",
+          placeholder: "pizza, coffee, sushi...",
+          onChange: this.handleChange
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "submit"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-search"
+        }))));
+      } else return null;
     }
   }]);
 
@@ -1670,6 +1676,12 @@ var Splash = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-background"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: window.doughnutsURL
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splash-main"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "main-logo"
@@ -1690,7 +1702,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "sample"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/businesses/1"
-      }, "Sample Business")));
+      }, "Sample Business"))));
     }
   }]);
 

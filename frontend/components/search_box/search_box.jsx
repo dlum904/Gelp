@@ -20,10 +20,11 @@ class SearchBox extends React.Component {
     handleChange(e) {
         e.preventDefault();
         this.setState({searchField: e.target.value})
-        console.log(this.props)
+        debugger
     }
     
     render() {
+        if (this.props.businesses) {
         return (
             <div>
             <form >
@@ -36,6 +37,9 @@ class SearchBox extends React.Component {
             </form>
             </div>
         )
+        }
+        else
+        return ( null )
     }
 
 }

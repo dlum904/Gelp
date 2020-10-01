@@ -53,15 +53,17 @@ class NavBar extends React.Component {
         ) : 
         (
             <div className="nav-logged-out">
-                    <ul className="nav-list">
+                    <ul className="nav-logged-out-list">
                         <li>
                             <Link to="/"><img className="gelplogo" src={window.gelpLogoURL} /></Link>
                         </li>
-                        </ul>
-                <div className="nav-links">
-                    <Link to="/login">Login</Link>
-                    <Link to="/signup">Sign up</Link>
-                </div>
+                        <li>
+                            <div className="nav-links">
+                                <Link to="/login">Login</Link>
+                                <Link to="/signup">Sign up</Link>
+                            </div>
+                        </li>
+                    </ul>
             </div>
         )
     }

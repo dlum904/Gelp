@@ -8,15 +8,22 @@ class Splash extends React.Component {
 
     render() {
         return (
-            <div className="splash-main">
-                <div className="main-logo">
-                <Link to="/"><img src={window.gelpLogoURL} /></Link>
+            <div className="splash">
+                <div className="splash-background">
+                <img src={window.doughnutsURL} />
+
                 </div>
-                <form className="main-search" action="blah">
-                    <input type="text" placeholder="Search.." name="search"/>
-                        <button type="submit">Submit</button>
-                </form>
-                <div className="sample"><Link to="/businesses/1">Sample Business</Link></div>
+
+                <div className="splash-main">
+                    <div className="main-logo">
+                    <Link to="/"><img src={window.gelpLogoURL} /></Link>
+                    </div>
+                    <form className="main-search" action="blah">
+                        <input type="text" placeholder="Search.." name="search"/>
+                            <button type="submit">Submit</button>
+                    </form>
+                    <div className="sample"><Link to="/businesses/1">Sample Business</Link></div>
+                </div>
             </div>
         )
     }
