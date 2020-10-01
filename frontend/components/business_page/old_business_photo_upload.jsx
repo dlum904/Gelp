@@ -5,11 +5,9 @@ class BusinessPhotoUpload extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            photoFile: null,
-            photoUrl: null
+            photos: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -24,61 +22,58 @@ class BusinessPhotoUpload extends React.Component {
 
     handleFile(e) {
         const file = e.currentTarget.files[0];
+
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
-
-            this.setState({ photoFile: file, photoUrl: fileReader.result });
+            this.setState({photoFile: file, photo: fileReader.result});
         };
         if (file) {
             fileReader.readAsDataURL(file);
         }
     }
-
     handleSubmit(e) {
         e.preventDefault();
+        const { photos } = this.state;
         const formData = new FormData();
-        if (this.state.photoFile) {
-
-            formData.append('business[photos][]', this.state.photoFile);
+        
+        for (let i = 0; i < photos.length; i++) {
+            formData.append("business[photos][]", photos[i]);
         }
         $.ajax({
             url: `/api/businesses/${this.props.business.id}`,
             method: 'PATCH',
             data: formData,
             contentType: false,
-            processData: false
+            processData: false,
         }).then(this.props.history.push(`/businesses/${this.props.business.id}`))
+        
     }
-
-    handleClick(e) {
-        e.preventDefault();
-        document.getElementById('selectedFile').click()
-    }
+    
 
     render() {
-        const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
-
+        const preview = this.state.photos ? <img src={this.state.photos} /> : null
+        
         if (this.props.business) {
             return (
                 <div className="image upload-container">
-                    <h2><Link to={`/businesses/${this.props.business.id}`}> {this.props.business.business_name}:</Link> Add Photos</h2>
-
-                    <div className="image-preview">{preview}<input className= "browse-button" type="button" value="Browse Files" onClick={this.handleClick} /></div>
-                    
-                    
-                    <form className="upload-form" onSubmit={this.handleSubmit}>
-                        <input type="file"
-                            id="selectedFile"
-                            onChange={this.handleFile.bind(this)} />
-                        <input className= "upload-submit"type="submit" value="Upload"/>
-                    </form>
-
-                </div>
-
+                    <h2><Link to={`/businesses/${this.props.business.id}`}> {this.props.business.business_name}</Link>: Add Photos</h2>
+                    <h3>Preview</h3>
+                        {preview}
+                        <form onSubmit={this.handleSubmit}>
+                            <input      
+                            type="file"
+                            onChange={e => this.setState({ photos: e.target.files })}
+                            multiple
+                            />
+                            <input type="submit"/>
+                        </form>
+               
+            </div>
+    
             )
         }
         else
-            return (null)
+        return ( null )
     }
 }
 

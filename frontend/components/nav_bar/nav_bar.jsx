@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchBox from '../search_box/search_box_container'
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -32,7 +33,7 @@ class NavBar extends React.Component {
                         <Link to="/"><img className="gelplogo" src={window.gelpLogoURL} /></Link>
                     </li>
                     <li>
-                        Search Bar Here
+                        <SearchBox />
                     </li>
                     <li>
                         Write a Review
@@ -52,6 +53,11 @@ class NavBar extends React.Component {
         ) : 
         (
             <div className="nav-logged-out">
+                    <ul className="nav-list">
+                        <li>
+                            <Link to="/"><img className="gelplogo" src={window.gelpLogoURL} /></Link>
+                        </li>
+                        </ul>
                 <div className="nav-links">
                     <Link to="/login">Login</Link>
                     <Link to="/signup">Sign up</Link>

@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 class Business extends React.Component {
     constructor(props) {
         super(props)
+
+        // this.open = this.open.bind(this)
     }
 
     componentDidMount() {
@@ -18,14 +20,32 @@ class Business extends React.Component {
         } 
     }
 
+    // open() {
+    //     const date = new Date().toDateString().split(" ")[0]
+    //     const daysArray = Object.keys(this.props.schedules)
+
+    //     const currentDay = []
+    //     daysArray.forEach((day) => {
+    //         if (day.includes(date.toLowerCase())) {
+    //             currentDay.push(day);
+    //         }
+    //     })
+   
+       
+    // }
+
     render() {
         if (this.props.business && this.props.schedules.monday) {
-            const { business_name, category_1, category_2, category_3 } = this.props.business;
-            const categories =  category_2 ? category_3 ? category_1 + category_2 + category_3 : category_1 + category_2 : category_1;
+            const { id, business_name, category_1, category_2, category_3, photos } = this.props.business;
+            const categories =  category_2 ? category_3 ? category_1 + ", " + category_2 + ", " + category_3 : category_1 + ", " + category_2 : category_1;
             
             return (
                 <div className="business container">
-                    <div>images here</div>
+                    <div className= "business-images"><img src={photos[photos.length - 1]} />
+                        <img src={photos[photos.length - 2]} />
+                        <img src={photos[photos.length - 3]} />
+                        <img src={photos[photos.length - 4]} />
+                    </div>
                     <div className="business title-block">
                         <h1>{business_name}</h1>
                         <div>
@@ -35,13 +55,11 @@ class Business extends React.Component {
                            {categories}
                         </div>
                         <div className="business title-block hours">
-                            open/closed and hours
+        
                         </div>
                         <ul>
-                            <li>
-                                <form>
-                                    <input type="file"/>
-                                </form>
+                            <li className="addphoto-button">
+                                <Link to={`/businesses/${id}/upload`}><i className="fas fa-camera"></i> Add Photo </Link>
                             </li>
                         </ul>
                     </div>

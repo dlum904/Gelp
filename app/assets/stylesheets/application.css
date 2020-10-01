@@ -94,15 +94,13 @@ html, body {
 }
  
 footer{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 32000px;
-    margin-bottom: -32000px;
-    background: lightgray;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
+  background: lightgray;
+  left: 0;
+  bottom: 0;
+  height: 450px;
+  width: 100%;
+  color: white;
+  text-align: center;
  }
 
  footer a {

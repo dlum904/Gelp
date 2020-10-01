@@ -1,0 +1,25 @@
+.business-images {
+    display: flex;
+    height: 250px;
+}
+.business-images img{
+    max-width: 25%;
+    object-fit: cover;
+    margin: 1px;
+}
+.addphoto-button {
+    list-style-type: none;
+}
+.addphoto-button a {
+      font: bold 14px helvetica;
+  text-decoration: none;
+  background-color: transparent;
+  color: black;
+  padding: 6px 10px 6px 10px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-radius: 5px;
+  margin: 5px;
+}
