@@ -32,6 +32,7 @@
 }
 
 .rating-radials {
+    border: none;
 }
 
 .rating-radials label {
@@ -47,6 +48,7 @@
     position:absolute;
     top:-9999px;
     clip:rect(0,0,0,0);
+    display: none;
 }
 
 .rating:not(:checked) > label {
