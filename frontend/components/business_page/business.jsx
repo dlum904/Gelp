@@ -63,7 +63,7 @@ class Business extends React.Component {
                         </div>
                         <ul className="business-buttons">
                             <li className="addreview-button">
-                                <Link to={`/businesses/${id}/reviews/create`}><i id="add-review-star" class="fas fa-star" ></i> Write a Review </Link>
+                                <Link to={`/businesses/${id}/reviews/create`}><i id="add-review-star" className="fas fa-star" ></i> Write a Review </Link>
                             </li>
                             <li className="addphoto-button">
                                 <Link to={`/businesses/${id}/upload`}><i className="fas fa-camera"></i> Add Photo </Link>

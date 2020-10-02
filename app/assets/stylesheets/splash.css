@@ -47,3 +47,8 @@ margin: 100px auto 25px auto;
 .sample {
     margin: 10px auto 10px auto
 }
+.sample a {
+    margin: 10px 20px 10px 20px;
+    text-decoration: none;
+    color: white;
+}

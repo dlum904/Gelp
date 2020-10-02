@@ -22,7 +22,7 @@ class ReviewsIndex extends React.Component {
 
     render() {
 
-        if (this.props.reviews[this.props.business.id]) {
+        if (this.props.reviews) {
             return (
                 <div className="reviews-container">
                     

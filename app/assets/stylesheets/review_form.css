@@ -1,13 +1,87 @@
 .review-form-box {
+    margin: 0 auto 0 auto;
     display: flex;
-    border: solid 1px red;
     height: 500px;
+    width: 600px;
     flex-direction: column;
 }
 
 .review-form-box form{
     display: flex;
-    border: solid 1px red;
+    border: solid 1px lightgray;
     height: 500px;
     flex-direction: column;
+}
+
+.form-text-body {
+    height: 300px;
+    background-color: transparent;
+    border: none;
+
+}
+
+.form-text-submit {
+    margin: 10px auto 0 auto;
+    width: 150px;
+    height: 40px;
+    color: white;
+    background-color: red;
+    border: none;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+
+.rating {
+    width: 200px;
+    border: none;
+}
+
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: red;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: red;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
 }

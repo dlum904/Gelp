@@ -39,7 +39,7 @@ ActiveRecord::Base.transaction do
         state: "NY",
         business_zip_code: 10011,
         category_1: "Pizza",
-        category_2: "Coffee"
+        category_2: "Coffee",
         phone: "(415) 935-3408",
         website: "www.appacademy.io",
         street_address: "90 5th Ave",
@@ -103,6 +103,13 @@ ActiveRecord::Base.transaction do
         )
 
         Schedule.create(
+            day: "sunday",
+            open: "9:00 am",
+            close: "3:00 pm",
+            business_id: 1
+        )
+
+        Schedule.create(
             day: "monday",
             open: "11:45 am",
             close: "8:00 pm",
@@ -155,9 +162,23 @@ ActiveRecord::Base.transaction do
         )
 
         review2 = Review.create(
-            body: "This place is SUCKS",
-            rating: 5,
+            body: "This place is cool",
+            rating: 4,
             author_id: 1,
             business_id: 1 
+        )
+
+        review3 = Review.create(
+            body: "I love the sushi",
+            rating: 5,
+            author_id: 3,
+            business_id: 2 
+        )
+
+        review4 = Review.create(
+            body: "taste like love",
+            rating: 4,
+            author_id: 1,
+            business_id: 2
         )
 end

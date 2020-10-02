@@ -23,6 +23,7 @@ class ReviewForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createReview(this.state, this.state.business_id);
+        debugger
         this.props.history.push(`/businesses/${this.props.match.params.businessId}`)
     }
 
@@ -39,7 +40,7 @@ class ReviewForm extends React.Component {
                 <div className="review-form-box">
 
                 <form onSubmit={this.handleSubmit}>
-                    <label>☆
+                    {/* <label>☆
                     <input onChange={this.update("rating")} type="radio" id="1st" value="1" />
                     </label>
                     <label>☆
@@ -52,14 +53,22 @@ class ReviewForm extends React.Component {
                     <input onChange={this.update("rating")} type="radio" id="4th" value="4" />
                     </label>
                     <label>☆
-                    <input onChange={this.update("rating")} type="radio" id="5th" value="5" />
-                    </label> Select Your Rating
+                    <input onChange={this.update("rating")} type="radio" id="5th" value="5" />                    
+                    </label> Select Your Rating */}
+
+                        <fieldset className="rating">
+                            <input onChange={this.update("rating")} type="radio" id="star5" name="rating" value="5" /><label htmlFor="star5" title="Rocks!"></label>
+                            <input onChange={this.update("rating")} type="radio" id="star4" name="rating" value="4" /><label htmlFor="star4" title="Pretty good"></label>
+                            <input onChange={this.update("rating")} type="radio" id="star3" name="rating" value="3" /><label htmlFor="star3" title="Meh"></label>
+                            <input onChange={this.update("rating")} type="radio" id="star2" name="rating" value="2" /><label htmlFor="star2" title="Kinda bad"></label>
+                            <input onChange={this.update("rating")} type="radio" id="star1" name="rating" value="1" /><label htmlFor="star1" title="Sucks big time"></label>
+                        </fieldset>
 
                     <input className="form-text-body"
                     type="textarea"
                     onChange={this.update("body")}
                     placeholder="This place is cool YADAYADAYADA"/>
-                    <input type="submit"/>
+                    <input className="form-text-submit" type="submit"/>
                 </form>
 
                 </div>

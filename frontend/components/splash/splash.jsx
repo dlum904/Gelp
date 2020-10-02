@@ -22,7 +22,9 @@ class Splash extends React.Component {
                         <input type="text" placeholder="Search.." name="search"/>
                             <button type="submit">Submit</button>
                     </form>
-                    <div className="sample"><Link to="/businesses/1">Sample Business</Link></div>
+                    <div className="sample"><Link to="/businesses/1">Pizza</Link>
+                        <Link to="/businesses/2">Sushi</Link>
+                    </div>
                 </div>
             </div>
         )

@@ -9,19 +9,19 @@ class ReviewShow extends React.Component {
         console.log(this.props)
         let stars
         if (this.props.review.rating === 5) {
-            stars = <p><i class="fas fa-star" ></i><i class="fas fa-star" ></i><i class="fas fa-star" ></i><i class="fas fa-star" ></i><i class="fas fa-star" ></i></p>
+            stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>
         }
         else if (this.props.review.rating === 4) {
-            stars = <p><i class="fas fa-star" ></i><i class="fas fa-star" ></i><i class="fas fa-star" ></i><i class="fas fa-star" ></i></p>
+            stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>
         }
         else if (this.props.review.rating === 3) {
-            stars = <p><i class="fas fa-star" ></i><i class="fas fa-star" ></i><i class="fas fa-star" ></i></p>
+            stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>
         }
         else if (this.props.review.rating === 2) {
-            stars = <p><i class="fas fa-star" ></i><i class="fas fa-star" ></i></p>
+            stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>
         }
         else if (this.props.review.rating === 1) {
-            stars = <p><i class="fas fa-star" ></i></p>
+            stars = <p><i className="fas fa-star" ></i></p>
         }
 
         return (
