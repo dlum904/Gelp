@@ -4,7 +4,7 @@ import { createReview } from '../../actions/reviews_actions'
 import ReviewForm from './review_form'
 
 const mSTP = (state, ownProps) => {
-    business = state.entities.businesses[(ownProps.match.params.businessId)]
+    const business = state.entities.businesses[(ownProps.match.params.businessId)]
     return {
         business
     }
@@ -12,10 +12,10 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
     return {
-        createReview: (review) => {
-            return dispatch(createReview(review))
+        createReview: (review, businessId) => {
+            return dispatch(createReview(review, businessId))
         }
     }
 }
 
-connect(mSTP, mDTP)(ReviewForm)
+export default connect(mSTP, mDTP)(ReviewForm)

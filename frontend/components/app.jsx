@@ -9,7 +9,7 @@ import BusinessContainer from './business_page/business_container';
 import Splash from './splash/splash';
 import BusinessPhotoUploadContainer from './business_page/business_photo_upload_container'
 import ReviewsIndexContainer from './reviews/reviews_index_container'
-import ReviewsFormContainer from './reviews/reviews_form_container'
+import ReviewFormContainer from './reviews/review_form_container'
 
 const App = () => (
     <div>
@@ -22,7 +22,7 @@ const App = () => (
             <Route exact path="/businesses/:businessId" component={BusinessContainer} />
             <Route exact path="/businesses/:businessId/upload" component={BusinessPhotoUploadContainer} /> 
             <Route exact path="/businesses/:businessId/reviews" component={ReviewsIndexContainer} />
-            <Route exact path="/businesses/:businessId/reviews/create" component={ReviewsFormContainer} />
+            <Route exact path="/businesses/:businessId/reviews/create" component={ReviewFormContainer} />
             <Route path="/" component={Splash} />
         </Switch>
 

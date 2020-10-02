@@ -53,7 +53,7 @@ class Business extends React.Component {
                     <div className="business-title-block">
                         <h1>{business_name}</h1>
                         <div>
-                            <p><i id="title-star" class="fas fa-star" ></i><i id="title-star" class="fas fa-star" ></i><i id="title-star" class="fas fa-star" ></i><i id="title-star" class="fas fa-star" ></i><i id="title-star" class="fas fa-star" >∞</i></p>
+                            <p><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" >∞</i></p>
                         </div>
                         <div className="business-title-block-category">
                            {categories}

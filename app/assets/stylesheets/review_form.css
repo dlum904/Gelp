@@ -1,0 +1,13 @@
+.review-form-box {
+    display: flex;
+    border: solid 1px red;
+    height: 500px;
+    flex-direction: column;
+}
+
+.review-form-box form{
+    display: flex;
+    border: solid 1px red;
+    height: 500px;
+    flex-direction: column;
+}

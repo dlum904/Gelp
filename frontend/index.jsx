@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore();
     }
 
-    window.dispatch = store.dispatch;
-    window.getState = store.getState;
-    window.fetchBusinesses = BusinessActions.fetchAllBusinesses;
-    window.fetchReviews = ReviewActions.fetchAllReviews;
-    window.fetchSchedules  = ScheduleActions.fetchSchedules;
+    // window.dispatch = store.dispatch;
+    // window.getState = store.getState;
+    // window.fetchBusinesses = BusinessActions.fetchAllBusinesses;
+    // window.fetchReviews = ReviewActions.fetchAllReviews;
+    // window.fetchSchedules  = ScheduleActions.fetchSchedules;
 
     ReactDOM.render(<Root store={store} />, root);
 });
