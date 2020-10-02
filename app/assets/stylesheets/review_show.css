@@ -1,0 +1,30 @@
+.reviews-container {
+    /* border: solid 1px red; */
+}
+
+.reviews-container ul {
+    list-style: none;
+}
+
+.review-show {
+    display: flex;
+    border-bottom: solid 1px lightgray;
+
+}
+
+.profile-stars {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.fa-star {
+    color: red;
+}
+#profile-pic {
+    font-size: 75px;
+    color: gray;
+    background: lightgray;
+}
+
+.review-main-body {
+    margin-left: 45px;
+}

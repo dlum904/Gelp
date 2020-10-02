@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Reviews from '../reviews/reviews_index_container'
 
 class Business extends React.Component {
     constructor(props) {
@@ -39,51 +40,62 @@ class Business extends React.Component {
 
     render() {
         if (this.props.business && this.props.schedules.monday) {
-            const { id, business_name, category_1, category_2, category_3, photos } = this.props.business;
+            const { id, business_name, category_1, category_2, category_3, photos, street_address, phone, city, state, business_zip_code } = this.props.business;
             const categories =  category_2 ? category_3 ? category_1 + ", " + category_2 + ", " + category_3 : category_1 + ", " + category_2 : category_1;
             
             return (
-                <div className="business container">
+                <div className="business-container">
                     <div className= "business-images"><img src={photos[photos.length - 1]} />
                         <img src={photos[photos.length - 2]} />
                         <img src={photos[photos.length - 3]} />
                         <img src={photos[photos.length - 4]} />
                     </div>
-                    <div className="business title-block">
+                    <div className="business-title-block">
                         <h1>{business_name}</h1>
                         <div>
-                            average review rating here
+                            <p><i id="title-star" class="fas fa-star" ></i><i id="title-star" class="fas fa-star" ></i><i id="title-star" class="fas fa-star" ></i><i id="title-star" class="fas fa-star" ></i><i id="title-star" class="fas fa-star" >∞</i></p>
                         </div>
-                        <div className="business title-block category">
+                        <div className="business-title-block-category">
                            {categories}
                         </div>
-                        <div className="business title-block hours">
-                            <p>Open  {this.open()}</p>
+                        <div className="business-title-block-hours">
+                            <div className="hours-body"><p>Open</p>  {this.open()}</div>
                         </div>
-                        <ul>
+                        <ul className="business-buttons">
+                            <li className="addreview-button">
+                                <Link to={`/businesses/${id}/reviews/create`}><i id="add-review-star" class="fas fa-star" ></i> Write a Review </Link>
+                            </li>
                             <li className="addphoto-button">
                                 <Link to={`/businesses/${id}/upload`}><i className="fas fa-camera"></i> Add Photo </Link>
                             </li>
                         </ul>
                     </div>
 
-                    <div className="business location-hours">
+                    <div className="business-location-hours">
                         <h2>Location & Hours</h2>
-                        <div>Google's map here</div>
-                        <div>
-                            <ul> 
+
+                        <div className="address-location-block">
+                            <div className="address-block">
+                                <img src={window.mapURL} />
+                                <p>{street_address}</p>
+                                <p>{city}, {state} {business_zip_code}</p>
+                                <p>{phone}</p>
+                            </div>
+                            <ul className="schedule-block"> 
                                 <li>Mon {this.props.schedules.monday.open} - {this.props.schedules.monday.close}</li>
                                 <li>Tue {this.props.schedules.tuesday.open} - {this.props.schedules.tuesday.close}</li>
                                 <li>Wed {this.props.schedules.wednesday.open} - {this.props.schedules.wednesday.close}</li>
                                 <li>Thur {this.props.schedules.thursday.open} - {this.props.schedules.thursday.close}</li>
                                 <li>Fri {this.props.schedules.friday.open} - {this.props.schedules.friday.close}</li>
                                 <li>Sat {this.props.schedules.saturday.open} - {this.props.schedules.saturday.close}</li>
+                                <li>Sun {this.props.schedules.saturday.open} - {this.props.schedules.saturday.close}</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div className="business reviews">
-                        <h2>Reviews</h2>
+                    <div className="business-reviews">
+                        <h2>Recommended Reviews</h2>
+                        <Reviews business={this.props.business}/>
                     </div>
                 </div>
             )
