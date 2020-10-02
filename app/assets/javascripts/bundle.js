@@ -1003,11 +1003,6 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
       this.props.history.push("/businesses/".concat(this.props.match.params.businessId));
     }
   }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {// this.props.fetchSchedules(this.props.match.params.businessId);
-      // this.props.fetchBusiness(this.props.match.params.businessId);
-    }
-  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

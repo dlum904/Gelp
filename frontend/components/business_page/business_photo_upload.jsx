@@ -26,7 +26,6 @@ class BusinessPhotoUpload extends React.Component {
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
-
             this.setState({ photoFile: file, photoUrl: fileReader.result });
         };
         if (file) {
@@ -38,7 +37,6 @@ class BusinessPhotoUpload extends React.Component {
         e.preventDefault();
         const formData = new FormData();
         if (this.state.photoFile) {
-
             formData.append('business[photos][]', this.state.photoFile);
         }
         $.ajax({

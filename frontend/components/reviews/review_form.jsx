@@ -26,12 +26,6 @@ class ReviewForm extends React.Component {
         this.props.history.push(`/businesses/${this.props.match.params.businessId}`)
     }
 
-    componentDidMount() {
-        // this.props.fetchSchedules(this.props.match.params.businessId);
-        // this.props.fetchBusiness(this.props.match.params.businessId);
-    }
-
-
     render() {
         return (
             <div className="review-form-container">
