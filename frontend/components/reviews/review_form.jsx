@@ -23,7 +23,6 @@ class ReviewForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createReview(this.state, this.state.business_id);
-        debugger
         this.props.history.push(`/businesses/${this.props.match.params.businessId}`)
     }
 
@@ -40,7 +39,9 @@ class ReviewForm extends React.Component {
                 <div className="review-form-box">
 
                 <form onSubmit={this.handleSubmit}>
-                    {/* <label>☆
+                    {/* <fieldset className="rating-radials">
+
+                    <label>☆
                     <input onChange={this.update("rating")} type="radio" id="1st" value="1" />
                     </label>
                     <label>☆
@@ -54,7 +55,9 @@ class ReviewForm extends React.Component {
                     </label>
                     <label>☆
                     <input onChange={this.update("rating")} type="radio" id="5th" value="5" />                    
-                    </label> Select Your Rating */}
+                    </label> Select Your Rating
+
+                    </fieldset> */}
 
                         <fieldset className="rating">
                             <input onChange={this.update("rating")} type="radio" id="star5" name="rating" value="5" /><label htmlFor="star5" title="Rocks!"></label>

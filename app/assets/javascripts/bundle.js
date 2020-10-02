@@ -1000,7 +1000,6 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       this.props.createReview(this.state, this.state.business_id);
-      debugger;
       this.props.history.push("/businesses/".concat(this.props.match.params.businessId));
     }
   }, {
@@ -1451,7 +1450,6 @@ var SearchBox = /*#__PURE__*/function (_React$Component) {
       this.setState({
         searchField: e.target.value
       });
-      debugger;
     }
   }, {
     key: "render",

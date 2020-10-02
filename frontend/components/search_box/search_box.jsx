@@ -20,7 +20,6 @@ class SearchBox extends React.Component {
     handleChange(e) {
         e.preventDefault();
         this.setState({searchField: e.target.value})
-        debugger
     }
     
     render() {
