@@ -5,14 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'open-uri'
 ActiveRecord::Base.transaction do
     
     User.destroy_all
     Business.destroy_all
     Schedule.destroy_all
     Review.destroy_all
-
+    
     user1 = User.create(
         id: 1,
         first_name: "doge",
@@ -20,8 +20,8 @@ ActiveRecord::Base.transaction do
         email: "doge@test.com",
         password: "password1",
         zip_code: 1234
-    )
-
+        )
+        
     user2 = User.create(
         id: 3,
         first_name: "Ash",
@@ -29,7 +29,8 @@ ActiveRecord::Base.transaction do
         email: "pokemon@test.com",
         password: "password1",
         zip_code: 1234
-    )
+        )
+            
 
 
     business1 =  Business.create(
@@ -44,9 +45,14 @@ ActiveRecord::Base.transaction do
         website: "www.appacademy.io",
         street_address: "90 5th Ave",
         business_email: "psecunda@appacademy.io",
+        lat: 40.740879,
+        lng: -73.99082,
         owner_id: 1
     )
-
+                
+    # file = open("https://gelp-seeds.s3.amazonaws.com/mug_pizza.jpg")
+    # business1.photos.attach(io: file, filename: "mug_pizza.jpg")
+            
     business2 =  Business.create(
         id: 2,
         business_name: "Umi Sushi",
@@ -59,6 +65,8 @@ ActiveRecord::Base.transaction do
         phone: "(718) 969-5668",
         website: "http://umisushifreshmeadows.cafecityguide.website",
         business_email: "umisushi@notanemail.com",
+        lat: 40.724780,
+        lng: -73.879570,
         owner_id: 3
     )
 

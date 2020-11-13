@@ -7,9 +7,10 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import BusinessContainer from './business_page/business_container';
 import Splash from './splash/splash';
-import BusinessPhotoUploadContainer from './business_page/business_photo_upload_container'
-import ReviewsIndexContainer from './reviews/reviews_index_container'
-import ReviewFormContainer from './reviews/review_form_container'
+import BusinessPhotoUploadContainer from './business_page/business_photo_upload_container';
+import ReviewsIndexContainer from './reviews/reviews_index_container';
+import ReviewFormContainer from './reviews/review_form_container';
+import UserShowContainer from './user/user_show_container';
 
 const App = () => (
     <div>
@@ -23,6 +24,7 @@ const App = () => (
             <Route exact path="/businesses/:businessId/upload" component={BusinessPhotoUploadContainer} /> 
             <Route exact path="/businesses/:businessId/reviews" component={ReviewsIndexContainer} />
             <Route exact path="/businesses/:businessId/reviews/create" component={ReviewFormContainer} />
+            <Route exact path="/user" component={UserShowContainer} />
             <Route path="/" component={Splash} />
         </Switch>
 

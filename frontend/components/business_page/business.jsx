@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Reviews from '../reviews/reviews_index_container'
+import GoogleMap from './googleMap'
 
 class Business extends React.Component {
     constructor(props) {
@@ -76,7 +77,8 @@ class Business extends React.Component {
 
                         <div className="address-location-block">
                             <div className="address-block">
-                                <img src={window.mapURL} />
+                                <GoogleMap business={this.props.business}/>
+                                {/* <img src={window.mapURL} /> */}
                                 <p>{street_address}</p>
                                 <p>{city}, {state} {business_zip_code}</p>
                                 <p>{phone}</p>

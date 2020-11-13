@@ -9,4 +9,6 @@ json.extract! business,
             :category_3,
             :phone,
             :street_address,
+            :lat,
+            :lng,
             :owner_id

@@ -5,7 +5,7 @@ class ReviewForm extends React.Component {
         super(props)
         this.state = {
             business_id: parseInt(this.props.match.params.businessId),
-            author_id: 1,
+            author_id: this.props.currentUser.id,
             rating: "",
             body: ""
         }
@@ -61,10 +61,11 @@ class ReviewForm extends React.Component {
                             <input onChange={this.update("rating")} type="radio" id="star1" name="rating" value="1" /><label htmlFor="star1" title="Sucks big time"></label>
                         </fieldset> */}
 
-                    <input className="form-text-body"
-                    type="textarea"
-                    onChange={this.update("body")}
-                    placeholder="This place is cool YADAYADAYADA"/>
+                    <textarea
+                        className="form-text-body"
+                        onChange={this.update("body")}
+                        placeholder="This place is cool YADAYADAYADA">
+                    </textarea> 
                     <input className="form-text-submit" type="submit"/>
                 </form>
 

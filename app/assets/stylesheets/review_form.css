@@ -14,9 +14,12 @@
 }
 
 .form-text-body {
-    height: 300px;
+        font-family: helvetica;
     background-color: transparent;
     border: none;
+    height: 400px;
+    resize: none;
+    outline-width: 0;
 
 }
 

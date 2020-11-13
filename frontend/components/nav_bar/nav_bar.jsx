@@ -42,8 +42,15 @@ class NavBar extends React.Component {
                         <i id="dropdown-container" className="fas fa-user-circle" onClick={this.handleClick}></i>
                             {this.state.show ? (
                                 <ul className="nav-dropdown-box">
-                                    <li><i className="far fa-user-circle"></i><p>About Me</p></li>
-                                    <li onClick={this.props.logout}><i className="fas fa-sign-out-alt"></i><p>Log Out</p></li>
+                                    <li>
+                                        <Link className="about-link"to="/user"><i className="far fa-user-circle"></i>About Me</Link>
+                                    </li>
+                                    <li>
+                                        <i className="far fa-user-circle"></i><p>About Me</p>
+                                    </li>
+                                    <li onClick={this.props.logout}>
+                                        <i className="fas fa-sign-out-alt"></i><p>Log Out</p>
+                                    </li>
                                 </ul>
                             ) : null }
                     </li>

@@ -91,9 +91,12 @@ margin: 3px;
   margin: 5px;
 }
 
-
-
 .business-reviews h2 {
     padding-top: 20px;
     border-top: solid 1px lightgray
+}
+
+.location-map {
+    width: 315px;
+    height: 150px;
 }

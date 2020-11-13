@@ -12,9 +12,15 @@
 
 }
 
-.profile-stars {
+.reviewer-info {
     margin-top: 20px;
     margin-bottom: 20px;
+    display: flex;
+}
+.reviewer-name {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 600;
 }
 .fa-star {
     color: red;
