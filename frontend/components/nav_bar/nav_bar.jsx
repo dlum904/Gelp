@@ -43,13 +43,20 @@ class NavBar extends React.Component {
                             {this.state.show ? (
                                 <ul className="nav-dropdown-box">
                                     <li>
-                                        <Link className="about-link"to="/user"><i className="far fa-user-circle"></i>About Me</Link>
+                                    <i id="profile-pic" className="far fa-user"></i>
+                                        Name
                                     </li>
                                     <li>
-                                        <i className="far fa-user-circle"></i><p>About Me</p>
+                                        <Link className="about-link"to="/user">
+                                            <i className="far fa-user-circle"></i>
+                                            About Me
+                                        </Link>
                                     </li>
-                                    <li onClick={this.props.logout}>
-                                        <i className="fas fa-sign-out-alt"></i><p>Log Out</p>
+                                    <li>
+                                        <div onClick={this.props.logout}>
+                                            <i className="fas fa-sign-out-alt"></i>
+                                            Log Out
+                                        </div>
                                     </li>
                                 </ul>
                             ) : null }

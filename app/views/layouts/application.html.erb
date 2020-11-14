@@ -4,7 +4,7 @@
     <title>Gelp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCEd4T3kr8CZbahjpFW2A-LnIFHw6-g2hY" %>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}" %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script src="https://kit.fontawesome.com/251f15af74.js" crossorigin="anonymous"></script>

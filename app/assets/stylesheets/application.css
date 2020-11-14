@@ -57,26 +57,19 @@ html, body {
   z-index: 1;
 }
 
-.nav-dropdown-box li {
-  display: flex;
-  border-bottom: solid 1px gray;
-  justify-content: space-evenly;
-  font-size: 14px;
+
+.nav-dropdown-box li{
+  border-bottom: 1px solid lightgray;
+
 }
+
 .nav-dropdown-box li:hover {
-  display: flex;
-  border-bottom: solid 1px gray;
-  justify-content: space-evenly;
-  font-size: 14px;
   cursor: pointer;
   background-color: lightgray;
 }
-.nav-dropdown-box li:last-child {
-  border: none;
-}
 
 .nav-dropdown-box li i {
-  padding-top: 15px;
+  margin-right: 10px;
 }
 
 .gelplogo {
