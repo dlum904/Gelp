@@ -6,6 +6,16 @@ class Api::BusinessesController < ApplicationController
 
     def index
         @businesses = Business.all
+
+        if params[:category]
+            if !@businesses.where(category_1: params[:category]).empty?
+                @businesses = @businesses.where(category_1: params[:category])
+            elsif !@businesses.where(category_2: params[:category]).empty?
+                @businesses = @businesses.where(category_2: params[:category])
+            elsif !@businesses.where(category_3: params[:category]).empty?
+                @businesses = @businesses.where(category_3: params[:category])
+            end
+        end
     end
 
     def create

@@ -4,7 +4,7 @@ class ReviewForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            business_id: parseInt(this.props.match.params.businessId),
+            business_id: this.props.match.params.businessId,
             author_id: this.props.currentUser.id,
             rating: "",
             body: ""

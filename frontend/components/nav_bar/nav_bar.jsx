@@ -13,7 +13,7 @@ class NavBar extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleBlur(e) {
+    handleBlur() {
         this.setState(
             {show: false}
         )
@@ -24,6 +24,7 @@ class NavBar extends React.Component {
             {show: !this.state.show}
         )
     }
+
 
     render() {
         return this.props.currentUser ? (
@@ -43,10 +44,6 @@ class NavBar extends React.Component {
                             {this.state.show ? (
                                 <ul className="nav-dropdown-box">
                                     <li>
-                                    <i id="profile-pic" className="far fa-user"></i>
-                                        Name
-                                    </li>
-                                    <li>
                                         <Link className="about-link"to="/user">
                                             <i className="far fa-user-circle"></i>
                                             About Me
@@ -58,6 +55,7 @@ class NavBar extends React.Component {
                                             Log Out
                                         </div>
                                     </li>
+                                    <div className="dropdown-background" onClick={this.handleClick}></div>
                                 </ul>
                             ) : null }
                     </li>
@@ -71,6 +69,12 @@ class NavBar extends React.Component {
                         <li>
                             <Link to="/"><img className="gelplogo" src={window.gelpLogoURL} /></Link>
                         </li>
+                        <li>
+                            <SearchBox />
+                        </li>
+                        <li>
+                            Write a Review
+                    </li>
                         <li>
                             <div className="nav-links">
                                 <Link to="/login">Login</Link>

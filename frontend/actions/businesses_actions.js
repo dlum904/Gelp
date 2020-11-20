@@ -4,8 +4,8 @@ export const RECEIVE_ALL_BUSINESSES = 'RECEIVE_ALL_BUSINESSES';
 export const RECEIVE_BUSINESS = 'RECEIVE_BUSINESS';
 
 
-export const fetchAllBusinesses = () => (dispatch) => {
-    return APIUtil.fetchAllBusinesses().then((businesses) => {
+export const fetchAllBusinesses = (category) => (dispatch) => {
+    return APIUtil.fetchAllBusinesses(category).then((businesses) => {
         return dispatch(receiveAllBusinesses(businesses));
     })
 }

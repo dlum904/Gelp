@@ -12,4 +12,4 @@ json.partial! './api/businesses/business', business: @business
     #             :phone,
     #             :street_address,
     #             :owner_id
-                json.photos @business.photos.map { |file| url_for(file) }
+                # json.photos @business.photos.map { |file| url_for(file) }

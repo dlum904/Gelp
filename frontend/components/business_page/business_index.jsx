@@ -11,7 +11,7 @@ class BusinessIndex extends React.Component {
         // will need to iterate through a slice of state provided by a search result that we get
             return (
                 <div className="business-index-contaner">
-                
+                    <h1>HI</h1>
                 </div>
             )
 

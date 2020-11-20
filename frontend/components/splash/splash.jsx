@@ -10,19 +10,19 @@ class Splash extends React.Component {
         return (
             <div className="splash">
                 <div className="splash-background">
-                <img src={window.doughnutsURL} />
-
+                    <img src={window.doughnutsURL} />
                 </div>
 
                 <div className="splash-main">
                     <div className="main-logo">
-                    <Link to="/"><img src={window.gelpLogoURL} /></Link>
+                        <Link to="/"><img src={window.gelpLogoURL} /></Link>
                     </div>
                     <form className="main-search" action="blah">
                         <input type="text" placeholder="Search.." name="search"/>
-                            <button type="submit">Submit</button>
+                        <button type="submit">Submit</button>
                     </form>
-                    <div className="sample"><Link to="/businesses/1">Pizza</Link>
+                    <div className="sample">
+                        <Link to="/businesses/1">Pizza</Link>
                         <Link to="/businesses/2">Sushi</Link>
                     </div>
                 </div>

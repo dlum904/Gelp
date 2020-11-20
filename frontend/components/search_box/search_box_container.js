@@ -12,8 +12,8 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
     return {
-        fetchAllBusinesses: () => {
-            return dispatch(fetchAllBusinesses());
+        fetchAllBusinesses: (category) => {
+            return dispatch(fetchAllBusinesses(category));
         }
     }
 }

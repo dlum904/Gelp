@@ -3,4 +3,5 @@ json.extract! review,
             :author,
             :body,
             :rating,
-            :business_id
+            :business_id,
+            :business

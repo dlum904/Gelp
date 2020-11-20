@@ -11,6 +11,7 @@ import BusinessPhotoUploadContainer from './business_page/business_photo_upload_
 import ReviewsIndexContainer from './reviews/reviews_index_container';
 import ReviewFormContainer from './reviews/review_form_container';
 import UserShowContainer from './user/user_show_container';
+import BusinessIndexContainer from './business_page/business_index_container';
 
 const App = () => (
     <div>
@@ -20,6 +21,7 @@ const App = () => (
         <Switch>
             <AuthRoute path="/login" component={LogInFormContainer} />
             <AuthRoute path="/signup" component={SignUpFormContainer} />
+            <Route exact path="/businesses/index" component={BusinessIndexContainer} />
             <Route exact path="/businesses/:businessId" component={BusinessContainer} />
             <Route exact path="/businesses/:businessId/upload" component={BusinessPhotoUploadContainer} /> 
             <Route exact path="/businesses/:businessId/reviews" component={ReviewsIndexContainer} />

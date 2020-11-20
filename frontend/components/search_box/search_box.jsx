@@ -1,32 +1,32 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'
 
 class SearchBox extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-
-            searchField: ""
+            category: ""
         };
-        
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    // componentDidMount() {
-    //     this.props.fetchAllBusinesses();
-    //     debugger
-    // }
 
     handleChange(e) {
         e.preventDefault();
-        this.setState({searchField: e.target.value})
+        this.setState({category: e.target.value})
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.fetchAllBusinesses(this.state);
+        this.props.history.push("/businesses/index");
     }
     
     render() {
-        if (this.props.businesses) {
         return (
             <div>
-            <form >
+            <form onSubmit={this.handleSubmit}>
                 <input className="search-box"
                     type="search"
                     placeholder="pizza, coffee, sushi..."
@@ -36,11 +36,8 @@ class SearchBox extends React.Component {
             </form>
             </div>
         )
-        }
-        else
-        return ( null )
     }
 
 }
 
-export default SearchBox;
+export default withRouter (SearchBox);

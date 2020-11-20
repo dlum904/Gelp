@@ -43,7 +43,7 @@ class Business extends React.Component {
         if (this.props.business && this.props.schedules.monday) {
             const { id, business_name, category_1, category_2, category_3, photos, street_address, phone, city, state, business_zip_code } = this.props.business;
             const categories =  category_2 ? category_3 ? category_1 + ", " + category_2 + ", " + category_3 : category_1 + ", " + category_2 : category_1;
-            
+
             return (
                 <div className="business-container">
                     <div className= "business-images"><img src={photos[photos.length - 1]} />

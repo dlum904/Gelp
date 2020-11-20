@@ -23,7 +23,8 @@
 }
 .business-location-hours {
     margin-left: 100px;
-    border-top: solid 1px lightgray
+    border-top: solid 1px lightgray;
+    width: 1000px;
 }
 .address-location-block {
     display: flex;
@@ -41,6 +42,7 @@ margin: 3px;
 .business-reviews {
     margin-left: 100px;
     margin-right: 100px;
+    width: 1000px;
 }
 
 .business-images {

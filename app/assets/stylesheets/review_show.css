@@ -4,23 +4,25 @@
 
 .reviews-container ul {
     list-style: none;
+    padding-left: 0px
 }
 
 .review-show {
     display: flex;
-    border-bottom: solid 1px lightgray;
-
+    border-bottom: solid 1px lightgray
 }
 
 .reviewer-info {
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
+    width: 200px;
 }
 .reviewer-name {
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
+    width: 200px;
 }
 .fa-star {
     color: red;
@@ -29,6 +31,7 @@
     font-size: 75px;
     color: gray;
     background: lightgray;
+    height: max-content;
 }
 
 .review-main-body {
