@@ -178,14 +178,14 @@ ActiveRecord::Base.transaction do
 
         review3 = Review.create(
             body: "I love the sushi",
-            rating: 5,
+            rating: 1,
             author_id: 3,
             business_id: 2 
         )
 
         review4 = Review.create(
             body: "taste like love",
-            rating: 4,
+            rating: 2,
             author_id: 1,
             business_id: 2
         )

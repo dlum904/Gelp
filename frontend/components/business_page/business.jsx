@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Reviews from '../reviews/reviews_index_container'
+import BusinessReviews from '../business_page/business_rating_container'
 import GoogleMap from './googleMap'
 
 class Business extends React.Component {
@@ -39,10 +40,65 @@ class Business extends React.Component {
         return `${this.props.schedules[currentDay].open} -  ${this.props.schedules[currentDay].close}`
     }
 
+    avgRating() {
+        // debugger
+        let numRatings = Object.values(this.props.business.reviews).length;
+        let sumRatings = 0;
+        for ( let i = 0 ; Object.values(this.props.business.reviews)[i]; i++ ) {
+            sumRatings += this.props.business.reviews[i].rating;
+        }
+        const rating = sumRatings / numRatings;
+        console.log(`rating = ${rating}`);
+        switch (Math.round(rating * 2) / 2) {
+            case 5:
+                return (
+                    <p className="avgRatings"><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i>{numRatings} reviews</p>
+                    )
+            case 4.5:
+                return (
+                    <p className="avgRatings"><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star-half"></i>{numRatings} reviews</p>
+                ) 
+            case 4:
+                return (
+                    <p className="avgRatings"><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i>{numRatings} reviews</p>
+                )
+            case 3.5:
+                return (
+                    <p className="avgRatings"><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star-half"></i>{numRatings} reviews</p>
+                )
+            case 3:
+                return (
+                    <p className="avgRatings"><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i>{numRatings} reviews</p>
+                )
+            case 2.5:
+                return(
+                    <p className="avgRatings"><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star-half"></i>{numRatings} reviews</p>
+                )
+            case 2:
+                return(
+                    <p className="avgRatings"><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i>{numRatings} reviews</p>
+                )
+            case 1.5:
+                return (
+                    <p className="avgRatings"><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star-half"></i>{numRatings} reviews</p>
+                )
+            case 1:
+                return (
+                    <p className="avgRatings"><i id="title-star" className="fas fa-star" ></i></p>
+                )
+            case 0.5:
+                return (
+                    <p className="avgRatings"><i id="title-star" className="fas fa-star-half"></i></p>
+                )
+            default:
+        }
+    }
+    
     render() {
         if (this.props.business && this.props.schedules.monday) {
             const { id, business_name, category_1, category_2, category_3, photos, street_address, phone, city, state, business_zip_code } = this.props.business;
             const categories =  category_2 ? category_3 ? category_1 + ", " + category_2 + ", " + category_3 : category_1 + ", " + category_2 : category_1;
+
 
             return (
                 <div className="business-container">
@@ -54,7 +110,7 @@ class Business extends React.Component {
                     <div className="business-title-block">
                         <h1>{business_name}</h1>
                         <div>
-                            <p><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" ></i><i id="title-star" className="fas fa-star" >∞</i></p>
+                            {this.avgRating()}
                         </div>
                         <div className="business-title-block-category">
                            {categories}

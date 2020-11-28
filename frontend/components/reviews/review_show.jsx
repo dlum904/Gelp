@@ -26,21 +26,6 @@ class ReviewShow extends React.Component {
                 break;
             default:
         }
-        // if (this.props.review.rating === 5) {
-        //     stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>
-        // }
-        // else if (this.props.review.rating === 4) {
-        //     stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>
-        // }
-        // else if (this.props.review.rating === 3) {
-        //     stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>
-        // }
-        // else if (this.props.review.rating === 2) {
-        //     stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>
-        // }
-        // else if (this.props.review.rating === 1) {
-        //     stars = <p><i className="fas fa-star" ></i></p>
-        // }
 
         return (
             <div className="review-show">

@@ -6,10 +6,19 @@
     font-weight: 900;
     margin-bottom: 0px;
 }
+.avgRatings {
+    font-size: 20px;
+    color: gray;
+    display: flex;
+    align-items: center;
+}
 #title-star {
     font-size: 40px;
+    color: red
 }
-
+.business-title-block-category {
+    color: gray;
+}
 .hours-body p{
     color: green;
     margin-right: 5px;
