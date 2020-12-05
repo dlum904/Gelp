@@ -64,7 +64,7 @@
      border-radius: 3px;
  }
 
- .small-errors p {
+ .email-error {
   width: 300px;
   margin: 10px auto;
   border: 1px solid gray;
@@ -73,10 +73,11 @@
   text-align: center;
   color: black;
   font: 14px helvetica;
-  position: relative;
+  background-color: #eeeeef;
+  position: fixed
 }
 
-.small-errors p::after {
+.email-error::after {
   content: "";
   width: 0px;
   height: 0px;
@@ -84,12 +85,12 @@
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 10px solid transparent;
-  border-bottom: 10px solid #fff;
+  border-bottom: 10px solid #eeeeef;
   left: 20px;
-  top: -19px;
+  top: -20px;
     }
 
-.small-errors p::before {
+.email-error::before {
   content: "";
   width: 0px;
   height: 0px;
@@ -99,13 +100,20 @@
   border-top: 10px solid transparent;
   border-bottom: 10px solid gray;
   left: 20px;
-  top: -20px;
+  top: -21px;
     }
-.small-errors i {
+.email-errors i {
     color: orange;
     margin: 5px;
  }
-
+.email-errors-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 0;
+}
 .birthdate-dropdown {
     font: bold 10px helvetica;
     margin-left: 5px;
@@ -113,6 +121,7 @@
     flex-direction: column;
     height: 50px;
  }
+ 
  .birthday {
     width: 100px;
     margin-right: 4px;

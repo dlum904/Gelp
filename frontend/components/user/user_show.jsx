@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import * as APIUtil from '../../util/businesses_api_util'
 class UserShow extends React.Component {
     constructor(props) {
         super(props)
     }
 
-    getBusiness(id) {
+    // getBusiness(id) {
         // $.ajax({
         //     method: "GET",
         //     url: `api/businesses/${id}`,
@@ -20,9 +21,16 @@ class UserShow extends React.Component {
         //     console.log(business.business_name);
         //     return business.business_name;
         // })
+    // }
+
+    componentDidMount() {
+        debugger
+        this.props.fetchUser(this.props.currentUser.id)
+        debugger
     }
 
     render() {
+
         return (
             <div className="user-show-container">
                 
@@ -63,11 +71,10 @@ class UserShow extends React.Component {
                             // let business = this.getBusiness(1);
                             // console.log(business)
                             
-                            
                             return <li key={review.id}>
                                 <i id="user-profile-review-pic" className="far fa-user"></i>
                                     <div className="user-profile-review">
-                                        <p className="profile-business">You wrote this review for BUSINESS_NAME HERE </p>
+                                    <p className="profile-business">You wrote this review for <Link to={`/businesses/${review.buseinss_id}`}>{review.business_name} </Link></p>
                                         <div className="stars">{stars}</div>
                                         <p className="profile-review-body">{review.body}</p>
 

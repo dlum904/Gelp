@@ -1,6 +1,12 @@
-.business-title-block {
-    margin-left: 100px;
+.business-container-main {
+    width: 1000px;
+    margin: auto;
+    display: flex;
 }
+.business-container-left {
+    width: 750px;
+}
+
 .business-title-block h1 {
     font-size: 50px;
     font-weight: 900;
@@ -31,9 +37,7 @@
     align-items: center;
 }
 .business-location-hours {
-    margin-left: 100px;
     border-top: solid 1px lightgray;
-    width: 1000px;
 }
 .address-location-block {
     display: flex;
@@ -43,15 +47,10 @@
 }
 .schedule-block{
     margin-top: 0px;
-list-style: none;
+    list-style: none;
 }
 .schedule-block li{
 margin: 3px;
-}
-.business-reviews {
-    margin-left: 100px;
-    margin-right: 100px;
-    width: 1000px;
 }
 
 .business-images {
@@ -64,7 +63,23 @@ margin: 3px;
     object-fit: cover;
     margin: 1px;
 }
-
+.image-index-link {
+    position: absolute;
+    right: 1%;
+    top: 280px;
+    z-index: 9;
+    font: bold 16px helvetica;
+    text-decoration: none;
+    background-color: #eeeeef;
+    color: black;
+    padding: 10px 14px 10px 14px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+}
 .business-buttons {
     padding-left: 0px;
     display: flex;
@@ -73,11 +88,11 @@ margin: 3px;
     list-style-type: none;
 }
 .addphoto-button a {
-      font: bold 14px helvetica;
+      font: bold 16px helvetica;
   text-decoration: none;
   background-color: transparent;
   color: black;
-  padding: 6px 10px 6px 10px;
+  padding: 10px 14px 10px 14px;
   border-top: 1px solid black;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
@@ -93,11 +108,11 @@ margin: 3px;
     color: white;
 }
 .addreview-button a {
-      font: bold 14px helvetica;
+      font: bold 16px helvetica;
   text-decoration: none;
   background-color: red;
   color: white;
-  padding: 6px 10px 6px 10px;
+  padding: 10px 14px 10px 14px;
   border-radius: 5px;
   margin: 5px;
 }
@@ -110,4 +125,55 @@ margin: 3px;
 .location-map {
     width: 315px;
     height: 150px;
+}
+
+.business-container-right {
+    margin: 30px 0px 750px 0px;
+    background-color: #eeeeef;
+    width: 300px;
+}
+
+.business-container-right ul {
+    position: sticky;
+    top: 100px;
+    width: 300px;
+    padding: 10px;
+    margin: 0px 0px 0px 10px;
+    border: solid 1px lightgray;
+}
+.business-container-right ul li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px lightgray;
+    align-items: center;
+}
+.business-container-right ul li:last-child {
+
+    border-bottom: none
+}
+.side-info {
+    color: #00838f;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.side-info-phone {
+        margin-top: 20px;
+    margin-bottom: 20px;
+    color: black;
+}
+.side-info-address {
+    color: gray;
+    margin: 5px 0px 0px 0px;
+}
+.side-info a {
+    color: #00838f;
+    text-decoration: none;
+    text-overflow: clip;
+}
+
+.business-container-right i {
+    font-size: 25px;
 }

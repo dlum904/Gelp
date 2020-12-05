@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SearchBox from '../search_box/search_box_container'
+import SearchBox from '../search_box/nav_search_box_container'
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -36,21 +36,18 @@ class NavBar extends React.Component {
                     <li>
                         <SearchBox />
                     </li>
-                    <li>
-                        Write a Review
-                    </li>
                     <li className="nav-dropdown">
                         <i id="dropdown-container" className="fas fa-user-circle" onClick={this.handleClick}></i>
                             {this.state.show ? (
                                 <ul className="nav-dropdown-box">
+                                    <Link className="about-link" to="/user" onClick={this.handleClick}>
                                     <li>
-                                        <Link className="about-link"to="/user">
                                             <i className="far fa-user-circle"></i>
                                             About Me
-                                        </Link>
                                     </li>
-                                    <li>
-                                        <div onClick={this.props.logout}>
+                                        </Link>
+                                <li onClick={this.props.logout}>
+                                        <div>
                                             <i className="fas fa-sign-out-alt"></i>
                                             Log Out
                                         </div>
@@ -72,9 +69,9 @@ class NavBar extends React.Component {
                         <li>
                             <SearchBox />
                         </li>
-                        <li>
-                            Write a Review
-                    </li>
+                        {/* <li>
+                            <Link to="/businesses/index">Write a Review</Link>
+                    </li> */}
                         <li>
                             <div className="nav-links">
                                 <Link to="/login">Login</Link>

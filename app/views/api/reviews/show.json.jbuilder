@@ -4,4 +4,5 @@ json.extract! @review,
             :body,
             :rating,
             :business_id,
-            :business
+            :business,
+            :business_name

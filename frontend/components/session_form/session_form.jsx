@@ -17,9 +17,15 @@ class SessionForm extends React.Component {
             password: "password1",
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
+        this.clearErrors = this.clearErrors.bind(this);
 
+        this.nameEmpty = false;
         this.emailError = false;
+        this.emailEmpty = false;
+        this.passwordEmpty = false;
+        this.zipCodeEmpty = false;
     }
 
     update(field) {
@@ -39,12 +45,40 @@ class SessionForm extends React.Component {
         });
     }
 
+    clearErrors(e) {
+        this.props.clearErrors()
+    }
+
     handleSubmit(e) {
         e.preventDefault();
+        this.props.clearErrors();
         if (this.emailValid()) {
             this.emailError = true;
         }
+        else if ((this.state.first_name === "") || this.state.last_name === "" ) {
+            this.nameEmpty = true;
+        }
+        else if (this.state.email === "") {
+            this.emailEmpty = true;
+        }
+        else if (this.state.password === "") {
+            this.passwordEmpty = true;
+        }
+        else if (this.state.zip_code === "") {
+            this.zipCodeEmpty = true;
+        }
         this.props.processForm(this.state);
+        this.setState({ state: this.state });
+    }
+
+    handleBlur(e) {
+        e.preventDefault();
+        this.nameEmpty = false;
+        this.emailError = false;
+        this.emailEmpty = false;
+        this.passwordEmpty = false;
+        this.zipCodeEmpty = false;
+        this.setState( {state: this.state});
     }
 
     renderErrors() {
@@ -65,14 +99,6 @@ class SessionForm extends React.Component {
             return `Please include an '@' in the email address. ${this.state.email} is missing an '@'.`
         }
     }
-
-    fieldEmpty(field) {
-        if (this.state.field === "") {
-            return "Please fill out this field"
-        }
-    }
-
-                       
     
     render () {
         if (this.props.formType === "login") {      //login form
@@ -87,7 +113,7 @@ class SessionForm extends React.Component {
                         <div className="session-form-box">
                         <form onSubmit={this.handleSubmit}>
                             <p className="session-form-title">Login to Gelp</p>
-                            <p className="session-form-title-2">New to Gelp? <Link to="/signup">Sign Up</Link></p>
+                            <p className="session-form-title-2">New to Gelp? <Link to="/signup" onClick={this.clearErrors}>Sign Up</Link></p>
 
                             <input type="text"
                                 value={this.state.email}
@@ -96,8 +122,18 @@ class SessionForm extends React.Component {
                                 className="form-input"
                             />
 
-                            <div className="small-errors">
-                                {this.emailError ? <p><i className="fas fa-exclamation"></i>{this.emailValid()}</p> : null}
+                            <div className="email-errors">
+                                {this.emailError ? (
+                                    <div className="email-error">
+                                        <i className="fas fa-exclamation"></i>{this.emailValid()}
+                                        <div className="email-errors-background" onClick={this.handleBlur}></div>
+                                    </div>
+                                ) : this.emailEmpty ? (
+                                    <div className="email-error">
+                                        <i className="fas fa-exclamation"></i> Please fill out this field
+                                        <div className="email-errors-background" onClick={this.handleBlur}></div>
+                                    </div>
+                                ) : null}
                             </div> 
                                 
                             <input type="password"
@@ -106,10 +142,18 @@ class SessionForm extends React.Component {
                                 onChange={this.update("password")}
                                 className="form-input"
                             />
+                            <div className="email-errors">
+                                {this.passwordEmpty ? (
+                                    <div className="email-error">
+                                            <i className="fas fa-exclamation"></i> Please fill out this field
+                                        <div className="email-errors-background" onClick={this.handleBlur}></div>
+                                    </div>
+                                ) :null}
+                            </div> 
 
                             <input className="submit" type="submit" value="Log In"/>
 
-                            <p className="session-form-foot">New to Gelp? <Link to="/signup">Sign Up</Link></p>
+                                <p className="session-form-foot">New to Gelp? <Link to="/signup" onClick={this.clearErrors}>Sign Up</Link></p>
                         </form>
 
                         <button onClick={() => this.props.processForm(this.demo)}>Demo Login</button>
@@ -122,12 +166,13 @@ class SessionForm extends React.Component {
                 </div>
             )
         }
-        else {                                      //sign up form
+        else {        
+            // debugger                             //sign up form
             return (
                 <div>
                     <div className="big-errors">
                         {this.props.errors.length > 0 ?
-                            <p>{this.props.errors.slice(-1)}</p> : null}
+                            <p>{this.props.errors[0].slice(1, -1).split(",")[0].slice(1, -1)}</p> : null}
                     </div>
                 <div className="session-form-container">
                     <form onSubmit={this.handleSubmit} className="session-form-box">
@@ -146,6 +191,14 @@ class SessionForm extends React.Component {
                                 placeholder="Last Name"
                                 onChange={this.update("last_name")}
                             />
+                            <div className="email-errors">
+                                {this.nameEmpty ? (
+                                    <div className="email-error">
+                                        <i className="fas fa-exclamation"></i> Please fill in your First and Last Name
+                                        <div className="email-errors-background" onClick={this.handleBlur}></div>
+                                    </div>
+                                ) : null}
+                            </div> 
                         </div>
                         <input type="text"
                             value={this.state.email}
@@ -153,18 +206,50 @@ class SessionForm extends React.Component {
                             onChange={this.update("email")}
                             className="form-input"
                         />
+                            <div className="email-errors">
+                                {this.emailError ? (
+                                    <div className="email-error">
+                                        <i className="fas fa-exclamation"></i>{this.emailValid()}
+                                        <div className="email-errors-background" onClick={this.handleBlur}></div>
+                                    </div>
+                                ) : this.emailEmpty ? (
+                                    <div className="email-error">
+                                        <i className="fas fa-exclamation"></i> Please fill out this field
+                                        <div className="email-errors-background" onClick={this.handleBlur}></div>
+                                    </div>
+                                ) : null}
+                            </div> 
+
                         <input type="password"
                             value={this.state.password}
                             placeholder="Password"
                             onChange={this.update("password")}
                             className="form-input"
                         />
+                        <div className="email-errors">
+                            {this.passwordEmpty ? (
+                                <div className="email-error">
+                                    <i className="fas fa-exclamation"></i> Please fill out this field
+                                    <div className="email-errors-background" onClick={this.handleBlur}></div>
+                                </div>
+                            ) : null}
+                        </div> 
+
                         <input type="text"
                             value={this.state.zip_code}
                             placeholder="ZIP CODE"
                             onChange={this.update("zip_code")}
                             className="form-input"
                         />
+                        <div className="email-errors">
+                            {this.zipCodeEmpty ? (
+                                <div className="email-error">
+                                    <i className="fas fa-exclamation"></i> Please fill out this field
+                                    <div className="email-errors-background" onClick={this.handleBlur}></div>
+                                </div>
+                            ) : null}
+                        </div> 
+
                         <div className="birthdate-dropdown">
                             <label> Birthday Optional</label>
                             <div>
@@ -344,7 +429,7 @@ class SessionForm extends React.Component {
                         </div>
                         
                         <input className="submit" type="submit" value="Sign Up" />
-                        <p className="session-form-foot">Already on Gelp? <Link to="/login">Log in</Link></p>
+                            <p className="session-form-foot">Already on Gelp? <Link to="/login" onClick={this.clearErrors}>Log in</Link></p>
                     </form>
                     <img className="illustration" src={window.illustrationURL} />
                 </div>

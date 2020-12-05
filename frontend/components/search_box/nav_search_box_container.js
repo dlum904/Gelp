@@ -6,7 +6,7 @@ const mSTP = (state) => {
     const businesses = state.entities.businesses
     return {
         businesses,
-        type: "main"
+        type: "nav"
     }
 
 }

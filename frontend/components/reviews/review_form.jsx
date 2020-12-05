@@ -6,6 +6,7 @@ class ReviewForm extends React.Component {
         this.state = {
             business_id: this.props.match.params.businessId,
             author_id: this.props.currentUser.id,
+            business_name: this.props.location.aboutProps.business,
             rating: "",
             body: ""
         }
@@ -22,6 +23,7 @@ class ReviewForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        debugger
         this.props.createReview(this.state, this.state.business_id);
         this.props.history.push(`/businesses/${this.props.match.params.businessId}`)
     }
@@ -31,7 +33,7 @@ class ReviewForm extends React.Component {
             <div className="review-form-container">
 
                 <div className="review-form-box">
-
+                {this.props.location.aboutProps.business}
                 <form onSubmit={this.handleSubmit}>
                     <fieldset className="rating-radials">
 

@@ -60,11 +60,19 @@ class BusinessIndex extends React.Component {
             default:
         }
     }
+
+    // componentDidMount() {
+    //     debugger
+    //     if (Object.values(this.props.businesses) <= 1) {
+    //         debugger
+    //         this.props.fetchAllBusinesses()
+    //     }
+    // }
+
     render() {
         // will need to iterate through a slice of state provided by a search result that we get
-        
-        console.log(this.props.businesses)
         let num = 0;
+        if (this.props.businesses) {
             return (
                 <div className="business-index-container">
                     All Results
@@ -103,6 +111,9 @@ class BusinessIndex extends React.Component {
                     </div>
                 </div>
             )
+        }
+        else
+            return (null)
 
     }
 }

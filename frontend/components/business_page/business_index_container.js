@@ -4,6 +4,7 @@ import BusinessIndex from './business_index'
 
 const mSTP = (state) => {
     const businesses = state.entities.businesses
+    // debugger
     return {
         businesses
     }
