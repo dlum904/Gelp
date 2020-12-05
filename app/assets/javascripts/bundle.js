@@ -483,7 +483,6 @@ var Business = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "avgRating",
     value: function avgRating() {
-      // debugger
       var numRatings = Object.values(this.props.business.reviews).length;
       var sumRatings = 0;
 
@@ -848,7 +847,6 @@ var BusinessIndex = /*#__PURE__*/function (_React$Component) {
   _createClass(BusinessIndex, [{
     key: "avgRating",
     value: function avgRating(business) {
-      // debugger
       var numRatings = Object.values(business.reviews).length;
       var sumRatings = 0;
 
@@ -982,14 +980,7 @@ var BusinessIndex = /*#__PURE__*/function (_React$Component) {
 
         default:
       }
-    } // componentDidMount() {
-    //     debugger
-    //     if (Object.values(this.props.businesses) <= 1) {
-    //         debugger
-    //         this.props.fetchAllBusinesses()
-    //     }
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -1054,8 +1045,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
-  var businesses = state.entities.businesses; // debugger
-
+  var businesses = state.entities.businesses;
   return {
     businesses: businesses
   };
@@ -1145,8 +1135,6 @@ var BusinessPhotoIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "openModal",
     value: function openModal(photo) {
-      // e.preventDefault();
-      // debugger
       this.setState({
         modal: photo
       });
@@ -1154,7 +1142,6 @@ var BusinessPhotoIndex = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "closeModal",
     value: function closeModal() {
-      // debugger
       this.setState({
         modal: null
       });
@@ -1569,7 +1556,6 @@ var BusinessRating = /*#__PURE__*/function (_React$Component) {
       // }
 
       if (this.props.reviews) {
-        debugger;
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "business-rating"
         });
@@ -1673,19 +1659,11 @@ var BusinessSearchShow = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchAllReviews(this.props.business.id);
-    } // componentDidUpdate(prevProps) {
-    //     debugger
-    //     if (prevProps.business.id !== this.props.business.id) {
-    //         this.props.fetchAllReviews(this.props.business.id)
-    //     }
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
-      // debugger
       if (this.props.business && Object.values(this.props.reviews)[0]) {
-        // debugger
         var _this$props$business = this.props.business,
             id = _this$props$business.id,
             business_name = _this$props$business.business_name,
@@ -2160,7 +2138,6 @@ var ReviewForm = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      debugger;
       this.props.createReview(this.state, this.state.business_id);
       this.props.history.push("/businesses/".concat(this.props.match.params.businessId));
     }
@@ -3027,7 +3004,7 @@ var SessionForm = /*#__PURE__*/function (_React$Component) {
           src: window.illustrationURL
         })));
       } else {
-        // debugger                             //sign up form
+        //sign up form
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "big-errors"
         }, this.props.errors.length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.errors[0].slice(1, -1).split(",")[0].slice(1, -1)) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3703,10 +3680,9 @@ var Splash = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      // debugger
       this.props.fetchBusiness(1);
       this.props.fetchBusiness(2);
-      this.props.fetchBusiness(3); // debugger
+      this.props.fetchBusiness(3);
     }
   }, {
     key: "render",
@@ -3775,9 +3751,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
-  // const business = state.entities.businesses[(ownProps.match.params.businessId)]
   var businesses = state.entities.businesses;
-  debugger;
   return {
     businesses: businesses
   };
@@ -3863,9 +3837,7 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
   _createClass(UserShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      debugger;
       this.props.fetchUser(this.props.currentUser.id);
-      debugger;
     }
   }, {
     key: "render",
@@ -3988,7 +3960,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
-  // debugger
   var currentUser = state.entities.users[state.session.id];
   return {
     currentUser: currentUser
@@ -3998,7 +3969,6 @@ var mSTP = function mSTP(state) {
 var mDTP = function mDTP(dispatch) {
   return {
     fetchUser: function fetchUser(userId) {
-      debugger;
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUser"])(userId));
     }
   };

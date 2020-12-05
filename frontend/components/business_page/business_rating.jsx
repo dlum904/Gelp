@@ -41,7 +41,6 @@ class BusinessRating extends React.Component {
         //     default:
         // }
         if (this.props.reviews) {
-            debugger
             return (
                 <div className="business-rating">
 

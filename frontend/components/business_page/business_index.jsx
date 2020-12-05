@@ -8,7 +8,6 @@ class BusinessIndex extends React.Component {
 
     }
     avgRating(business) {
-        // debugger
         let numRatings = Object.values(business.reviews).length;
         let sumRatings = 0;
         for (let i = 0; Object.values(business.reviews)[i]; i++) {
@@ -61,13 +60,6 @@ class BusinessIndex extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     debugger
-    //     if (Object.values(this.props.businesses) <= 1) {
-    //         debugger
-    //         this.props.fetchAllBusinesses()
-    //     }
-    // }
 
     render() {
         // will need to iterate through a slice of state provided by a search result that we get

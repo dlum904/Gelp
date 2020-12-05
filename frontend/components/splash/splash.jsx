@@ -58,11 +58,9 @@ class Splash extends React.Component {
         }
     }
     componentDidMount() {
-        // debugger
         this.props.fetchBusiness(1);
         this.props.fetchBusiness(2);
         this.props.fetchBusiness(3);
-        // debugger
     }
 
     render() {

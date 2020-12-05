@@ -3,9 +3,7 @@ import Splash from './splash'
 import { fetchBusiness } from '../../actions/businesses_actions'
 
 const mSTP = (state) => {
-    // const business = state.entities.businesses[(ownProps.match.params.businessId)]
     const businesses = state.entities.businesses
-    debugger
     return {
         businesses
     }

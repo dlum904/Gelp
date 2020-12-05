@@ -41,7 +41,6 @@ class Business extends React.Component {
     }
 
     avgRating() {
-        // debugger
         let numRatings = Object.values(this.props.business.reviews).length;
         let sumRatings = 0;
         for ( let i = 0 ; Object.values(this.props.business.reviews)[i]; i++ ) {

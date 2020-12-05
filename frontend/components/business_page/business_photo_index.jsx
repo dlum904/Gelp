@@ -22,12 +22,9 @@ class BusinessPhotoIndex extends React.Component {
         }
     }
     openModal(photo) {
-        // e.preventDefault();
-        // debugger
         this.setState({modal: photo});
     }
     closeModal() {
-        // debugger
         this.setState({modal: null})
     }
 

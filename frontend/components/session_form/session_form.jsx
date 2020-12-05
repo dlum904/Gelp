@@ -166,8 +166,7 @@ class SessionForm extends React.Component {
                 </div>
             )
         }
-        else {        
-            // debugger                             //sign up form
+        else {                           //sign up form
             return (
                 <div>
                     <div className="big-errors">

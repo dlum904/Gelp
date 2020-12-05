@@ -9,20 +9,10 @@ class BusinessSearchShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllReviews(this.props.business.id);
-    }
-
-    // componentDidUpdate(prevProps) {
-    //     debugger
-    //     if (prevProps.business.id !== this.props.business.id) {
-    //         this.props.fetchAllReviews(this.props.business.id)
-    //     }
-    // }
-    
+    }    
 
     render() {
-        // debugger
         if (this.props.business && Object.values(this.props.reviews)[0]) {
-            // debugger
             const { id, business_name, category_1, category_2, category_3, photos, street_address, phone, city, state, business_zip_code } = this.props.business;
             const categories = category_2 ? category_3 ? category_1 + ", " + category_2 + ", " + category_3 : category_1 + ", " + category_2 : category_1;
             let numRatings = 0;

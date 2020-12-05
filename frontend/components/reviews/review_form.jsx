@@ -23,7 +23,6 @@ class ReviewForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         this.props.createReview(this.state, this.state.business_id);
         this.props.history.push(`/businesses/${this.props.match.params.businessId}`)
     }
