@@ -14,7 +14,6 @@ class BusinessIndex extends React.Component {
             sumRatings += business.reviews[i].rating;
         }
         const rating = sumRatings / numRatings;
-        console.log(`rating = ${rating}`);
         switch (Math.round(rating * 2) / 2) {
             case 5:
                 return (

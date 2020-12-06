@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from 'react-router-dom';
 class ReviewForm extends React.Component {
     constructor(props) {
         super(props)
@@ -32,7 +32,7 @@ class ReviewForm extends React.Component {
             <div className="review-form-container">
 
                 <div className="review-form-box">
-                {this.props.location.aboutProps.business}
+                <h2><Link to={`/businesses/${this.props.match.params.businessId}`}> {this.props.location.aboutProps.business}:</Link> Create a Review</h2>
                 <form onSubmit={this.handleSubmit}>
                     <fieldset className="rating-radials">
 
@@ -53,14 +53,6 @@ class ReviewForm extends React.Component {
                     </label> Select Your Rating
 
                     </fieldset>
-
-                        {/* <fieldset className="rating">
-                            <input onChange={this.update("rating")} type="radio" id="star5" name="rating" value="5" /><label htmlFor="star5" title="Rocks!"></label>
-                            <input onChange={this.update("rating")} type="radio" id="star4" name="rating" value="4" /><label htmlFor="star4" title="Pretty good"></label>
-                            <input onChange={this.update("rating")} type="radio" id="star3" name="rating" value="3" /><label htmlFor="star3" title="Meh"></label>
-                            <input onChange={this.update("rating")} type="radio" id="star2" name="rating" value="2" /><label htmlFor="star2" title="Kinda bad"></label>
-                            <input onChange={this.update("rating")} type="radio" id="star1" name="rating" value="1" /><label htmlFor="star1" title="Sucks big time"></label>
-                        </fieldset> */}
 
                     <textarea
                         className="form-text-body"

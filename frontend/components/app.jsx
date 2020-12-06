@@ -28,12 +28,15 @@ const App = () => (
             <Route exact path="/businesses/:businessId/images" component={BusinessPhotoIndexContainer} /> 
             <Route exact path="/businesses/:businessId/reviews" component={ReviewsIndexContainer} />
             <ProtectedRoute exact path="/businesses/:businessId/reviews/create" component={ReviewFormContainer} />
-            <Route exact path="/user" component={UserShowContainer} />
+            <ProtectedRoute exact path="/user" component={UserShowContainer} />
             <Route path="/" component={Splash} />
         </Switch>
 
         <footer>
-            <a href="https://www.linkedin.com/in/dennis-lum-12526b7a/">linkedin</a>
+            <div className="mylinks">
+                <a href="https://www.linkedin.com/in/dennis-lum-12526b7a/">Linkedin</a>
+                <a href="https://github.com/dlum904"> Git Hub</a>
+            </div>
         </footer>
     </div>
 );

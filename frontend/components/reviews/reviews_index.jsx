@@ -10,15 +10,8 @@ class ReviewsIndex extends React.Component {
     }
     componentDidMount() {
         this.props.fetchAllReviews(this.props.business.id)
-        // console.log("componentDidMount")
     }
 
-    // componentDidUpdate() {
-    //     if (!this.props.reviews.id) {
-    //         this.props.fetchAllReviews(this.props.business.id)
-
-    //     }
-    // }
 
     render() {
 

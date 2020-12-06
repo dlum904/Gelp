@@ -6,7 +6,6 @@ class ReviewShow extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         let stars
         switch (this.props.review.rating) {
             case 5:

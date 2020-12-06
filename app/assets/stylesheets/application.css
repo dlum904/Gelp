@@ -151,14 +151,21 @@ html, body {
  
 footer{
   /* position: relative; */
+  margin-top: 100px;
   background: lightgray;
-  height: 700px;
+  height: 400px;
   width: 100%;
   color: white;
   text-align: center;
  }
 
+ .mylinks {
+  display: flex;
+  flex-direction: column;
+ }
+
  footer a {
+     margin-top: 10px;
     font: bold 10px helvetica;
     color: #0073bb;
     text-decoration: none;

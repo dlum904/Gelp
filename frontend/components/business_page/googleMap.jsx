@@ -8,7 +8,6 @@ class GoogleMap extends React.Component{
     }
 
     componentDidMount() {
-        console.log(this.props)
         const mapOptions = {
             center: { lat: this.props.business.lat, lng: this.props.business.lng },
             zoom: 15

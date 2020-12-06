@@ -6,23 +6,6 @@ class UserShow extends React.Component {
         super(props)
     }
 
-    // getBusiness(id) {
-        // $.ajax({
-        //     method: "GET",
-        //     url: `api/businesses/${id}`,
-        //     dataType: "json",
-        //     success: function(data) {
-        //         return data
-        //         console.log(data)
-        //     }
-        // })
-
-        // return APIUtil.fetchBusiness(id).then((business) => {
-        //     console.log(business.business_name);
-        //     return business.business_name;
-        // })
-    // }
-
     componentDidMount() {
         this.props.fetchUser(this.props.currentUser.id)
     }
@@ -67,7 +50,7 @@ class UserShow extends React.Component {
                                 default:
                             }
                             // let business = this.getBusiness(1);
-                            // console.log(business)
+                            // (business)
                             
                             return <li key={review.id}>
                                 <i id="user-profile-review-pic" className="far fa-user"></i>
