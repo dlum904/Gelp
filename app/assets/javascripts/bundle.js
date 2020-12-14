@@ -3682,13 +3682,14 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       this.props.fetchBusiness(1);
       this.props.fetchBusiness(2);
       this.props.fetchBusiness(3);
+      this.props.fetchBusiness(4);
     }
   }, {
     key: "render",
     value: function render() {
       var _this = this;
 
-      if (this.props.businesses[1]) {
+      if (this.props.businesses[3]) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "splash"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

@@ -120,8 +120,8 @@ ActiveRecord::Base.transaction do
         business_id: 1 
     )
 
-    # file = open("https://gelp-seeds.s3.amazonaws.com/mug_pizza.jpg")
-    # business1.photos.attach(io: file, filename: "mug_pizza.jpg")
+    file = open("https://gelp-seeds.s3.amazonaws.com/mug_pizza.jpg")
+    business1.photos.attach(io: file, filename: "mug_pizza.jpg")
             
     business2 =  Business.create(
         id: 2,
