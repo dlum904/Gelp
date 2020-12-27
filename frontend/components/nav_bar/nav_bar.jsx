@@ -69,9 +69,6 @@ class NavBar extends React.Component {
                         <li>
                             <SearchBox />
                         </li>
-                        {/* <li>
-                            <Link to="/businesses/index">Write a Review</Link>
-                    </li> */}
                         <li>
                             <div className="nav-links">
                                 <Link to="/login">Login</Link>

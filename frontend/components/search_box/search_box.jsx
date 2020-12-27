@@ -49,7 +49,6 @@ class SearchBox extends React.Component {
                         </input>
                         <button type="submit"><i className="fas fa-search"></i></button>
                     </form>
-                    <p onClick={this.categorySearch("")}>Write a Review</p>
                 </div>
                 
             )

@@ -79,6 +79,11 @@ margin: 3px;
     border-left: 1px solid black;
     border-radius: 5px;
     margin: 5px;
+    transition: 0.5s
+}
+
+.image-index-link:hover {
+    background-color: lightgrey;
 }
 .business-buttons {
     padding-left: 0px;
@@ -90,7 +95,7 @@ margin: 3px;
 .addphoto-button a {
       font: bold 16px helvetica;
   text-decoration: none;
-  background-color: transparent;
+  background-color: #eeeeef;
   color: black;
   padding: 10px 14px 10px 14px;
   border-top: 1px solid black;
@@ -99,6 +104,10 @@ margin: 3px;
   border-left: 1px solid black;
   border-radius: 5px;
   margin: 5px;
+  transition: 0.5s;
+}
+.addphoto-button a:hover {
+    background-color: lightgray
 }
 
 .addreview-button {
@@ -115,6 +124,11 @@ margin: 3px;
   padding: 10px 14px 10px 14px;
   border-radius: 5px;
   margin: 5px;
+  transition: 0.5s;
+}
+
+.addreview-button a:hover{
+    background-color: #d32323;
 }
 
 .business-reviews h2 {
@@ -159,6 +173,14 @@ margin: 3px;
     margin-bottom: 20px;
     overflow: hidden;
 }
+
+.side-info-dir a{
+    color: #00838f;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
 .side-info-phone {
         margin-top: 20px;
     margin-bottom: 20px;
@@ -172,6 +194,9 @@ margin: 3px;
     color: #00838f;
     text-decoration: none;
     text-overflow: clip;
+}
+.side-info:hover, .side-info-dir a:hover{
+    text-decoration: underline;
 }
 
 .business-container-right i {

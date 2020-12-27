@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Reviews from '../reviews/reviews_index_container'
+import NavBarContainer from '../nav_bar/nav_bar_container';
 import BusinessReviews from '../business_page/business_rating_container'
 import GoogleMap from './googleMap'
 
@@ -99,6 +100,9 @@ class Business extends React.Component {
             const url = `http://maps.google.com/?q=${this.props.business.street_address}`
             return (
                 <div className="business-container">
+                    <header>
+                        <NavBarContainer />
+                    </header>
                     <div className= "business-images"><img src={photos[photos.length - 1]} />
                         <img src={photos[photos.length - 2]} />
                         <img src={photos[photos.length - 3]} />
@@ -176,7 +180,7 @@ class Business extends React.Component {
                                     <i className="fas fa-external-link-square-alt"></i>
                                 </li>
                                 <li>
-                                    <div className="side-info">
+                                    <div className="side-info-dir">
                                         <a href={url}> Get Directions </a>
                                         <p className="side-info-address">{street_address}, {city}, {state} {business_zip_code}</p>
                                     </div>

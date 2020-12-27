@@ -1,8 +1,15 @@
 
+.session-form-nav {
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px 10px 0px;
+}
 .session-form-container {
     margin-top: 100px;;
     display: flex;
     justify-content: space-evenly;
+    min-height: 400px;
 }
 
 .illustration {
@@ -50,9 +57,19 @@
 
  .session-form-foot {
     font: bold 10px helvetica;
-    color: #0073bb;
+    color: gray;
+    /* color: #0073bb; */
     text-decoration: none;
     margin-left: auto;
+ }
+
+ .session-form-foot a, .session-form-title-2 a {
+     text-decoration: none;
+         color: #0073bb;
+ }
+
+ .session-form-foot a:hover, .session-form-title-2 a:hover {
+     text-decoration: underline;
  }
  
 .big-errors p {
@@ -136,4 +153,10 @@
     border-radius: 3px;
     width: 309px;
     margin: 5px;
+    transition: 0.5s;
+}
+
+.submit:hover {
+    cursor: pointer;
+    background-color: #d32323;
 }

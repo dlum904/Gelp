@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LargeGoogleMap from './largeGoogleMap'
+import NavBarContainer from '../nav_bar/nav_bar_container';
 import BusinessSearchShow from './business_search_show_container'
 
 class BusinessIndex extends React.Component {
@@ -65,9 +67,13 @@ class BusinessIndex extends React.Component {
         let num = 0;
         if (this.props.businesses) {
             return (
+                <div className="business-index">
+                    <header className="index-nav-bar">
+                        <NavBarContainer />
+                    </header>
                 <div className="business-index-container">
-                    All Results
                     <div className="search-results">
+                    All Results
                         <ul>
                             {Object.values(this.props.businesses).map((business) => {
                                 const categories = business.category_2 ? business.category_3 ? business.category_1 + ", " + business.category_2 + ", " + business.category_3 : business.category_1 + ", " + business.category_2 : business.category_1;
@@ -100,6 +106,10 @@ class BusinessIndex extends React.Component {
                             })}
                         </ul>
                     </div>
+                    <div className="large-map">
+                        <LargeGoogleMap businesses={this.props.businesses} />
+                    </div>
+                </div>
                 </div>
             )
         }

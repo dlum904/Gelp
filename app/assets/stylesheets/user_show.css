@@ -46,6 +46,13 @@
 .profile-business {
     margin-top: 0px;
 }
+.profile-business a {
+    text-decoration: none;
+}
+
+.profile-business a:hover{
+    text-decoration: underline;
+}
 .profile-review-body {
     margin-top: 0px;
 }

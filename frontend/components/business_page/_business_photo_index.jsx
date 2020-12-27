@@ -5,13 +5,11 @@ class BusinessPhotoIndex extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            modalIdx: null
+            modal: null
         }
         // this.handleSubmit = this.handleSubmit.bind(this);
-        // this.openModal = this.openModal.bind(this);
-        // this.closeModal = this.closeModal.bind(this);
-        this.nextModal = this.nextModal.bind(this);
-        this.prevModal = this.prevModal.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
 
     componentDidMount() {
@@ -23,44 +21,27 @@ class BusinessPhotoIndex extends React.Component {
             this.props.fetchBusiness(this.props.match.params.businessId);
         }
     }
-    // openModal(i) {
-    //     debugger
-    //     this.setState({modalIdx: i});
-    //     debugger
-    // }
-    // closeModal() {
-    //     this.setState({modalIdx: null})
-    // }
-
-    nextModal() {
-        if (this.props.business.photos[this.state.modalIdx + 1]) {
-            this.setState({ modalIdx: this.state.modalIdx += 1 })
-        }
+    openModal(photo) {
+        this.setState({modal: photo});
     }
-    prevModal() {
-        if (this.props.business.photos[this.state.modalIdx - 1]) {
-            this.setState({ modalIdx: this.state.modalIdx -= 1 })
-        }
+    closeModal() {
+        this.setState({modal: null})
     }
 
     render() {
-        if (this.props.business && this.state.modalIdx === null) {
+        if (this.props.business && !this.state.modal) {
             const { photos } = this.props.business;
             const photosList = [];
             for ( let i = 0; i < 30; i ++ ) {
-                if (photos[i]) {
-                    photosList.push(
-                        <li key={i} onClick={ () => {
-                                this.setState({modalIdx: i})
-                        }}>
-                            <img className="photo-image" src={photos[i]} />
-    
-                        </li>
-                    )
+                photosList.push(
+                    <li key={i} onClick={ () => {
+                        this.openModal(photos[i])
+                    }}>
+                        <img className="photo-image" src={photos[i]} />
 
-                }
+                    </li>
+                )
             }
-            
             return (
                 <div className="photos-index-container">
                     <p> Photos for <Link to={`/businesses/${this.props.business.id}`}> {this.props.business.business_name}:</Link> </p>
@@ -78,16 +59,16 @@ class BusinessPhotoIndex extends React.Component {
     
             )
         }
-        else if (this.props.business && this.state.modalIdx !== null) {
+        else if (this.props.business && this.state.modal) {
             const { photos } = this.props.business;
             const photosList = [];
             for (let i = 0; i < 30; i++) {
                 photosList.push(
                     <li key={i} onClick={() => {
-                        this.setState({ modalIdx: i })
+                        this.openModal(photos[i])
                     }}>
                         <img className="photo-image" src={photos[i]} />
-
+                        {/* TO DO- Add arrows to onClick setState to this.openModal(photos[i + 1])  */}
                     </li>
                 )
             }
@@ -106,20 +87,9 @@ class BusinessPhotoIndex extends React.Component {
                         </div>
 
                         <div className="photo-modal">
-                        <div className="modal-background" onClick={ () => {
-                            this.setState({ modalIdx: null })
-                            }}></div>
+                            <div className="modal-background" onClick={this.closeModal}></div>
                             <div className="photo-large">
-                                <i className="fas fa-chevron-left" onClick={
-                                    this.prevModal
-                                }></i>
-
-                                <img src={this.props.business.photos[this.state.modalIdx]} />
-
-                                <i className="fas fa-chevron-right" onClick={
-                                    this.nextModal
-                                }></i>
-
+                                <img src={this.state.modal} />
                             </div>
                         </div>
                     </div>

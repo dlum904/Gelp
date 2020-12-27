@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavBarContainer from '../nav_bar/nav_bar_container';
 
 class BusinessPhotoUpload extends React.Component {
     constructor(props) {
@@ -59,6 +60,9 @@ class BusinessPhotoUpload extends React.Component {
         if (this.props.business) {
             return (
                 <div className="image upload-container">
+                    <header>
+                        <NavBarContainer />
+                    </header>
                     <h2><Link to={`/businesses/${this.props.business.id}`}> {this.props.business.business_name}:</Link> Add Photos</h2>
 
                     <div className="image-preview">{preview}<input className= "browse-button" type="button" value="Browse Files" onClick={this.handleClick} /></div>

@@ -103,7 +103,10 @@ class SessionForm extends React.Component {
     render () {
         if (this.props.formType === "login") {      //login form
             return (
-                <div>
+                <div className="session-form">
+                    <div className="session-form-nav">
+                        <Link to="/"><img className="gelplogo" src={window.gelpLogoURL} /></Link>
+                    </div>
                     <div className="big-errors">
                         {this.props.errors.length > 0 ?
                         <p>{this.props.errors.slice(-1)}</p> : null }
@@ -153,10 +156,10 @@ class SessionForm extends React.Component {
 
                             <input className="submit" type="submit" value="Log In"/>
 
-                                <p className="session-form-foot">New to Gelp? <Link to="/signup" onClick={this.clearErrors}>Sign Up</Link></p>
                         </form>
 
-                        <button onClick={() => this.props.processForm(this.demo)}>Demo Login</button>
+                        <button className="submit" onClick={() => this.props.processForm(this.demo)}>Demo Login</button>
+                                <p className="session-form-foot">New to Gelp? <Link to="/signup" onClick={this.clearErrors}>Sign Up</Link></p>
                         </div>
 
 
@@ -168,7 +171,10 @@ class SessionForm extends React.Component {
         }
         else {                           //sign up form
             return (
-                <div>
+                <div className="session-form">
+                    <div className="session-form-nav">
+                        <Link to="/"><img className="gelplogo" src={window.gelpLogoURL} /></Link>
+                    </div>
                     <div className="big-errors">
                         {this.props.errors.length > 0 ?
                             <p>{this.props.errors[0].slice(1, -1).split(",")[0].slice(1, -1)}</p> : null}

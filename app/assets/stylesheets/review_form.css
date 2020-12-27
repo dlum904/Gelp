@@ -16,7 +16,7 @@
 }
 .review-form-box form{
     display: flex;
-    border: solid 1px lightgray;
+    
     height: 500px;
     flex-direction: column;
 }
@@ -28,6 +28,7 @@
     height: 400px;
     resize: none;
     outline-width: 0;
+    border: solid 1px lightgray;
 
 }
 
@@ -40,67 +41,30 @@
     border: none;
     font-size: 16px;
     border-radius: 3px;
+    transition: 0.5s;
 }
 
+.form-text-submit:hover {
+    background-color: #d32323;
+    cursor: pointer;
+}
 .rating-radials {
     border: none;
 }
 
-.rating-radials label {
+#radio-star {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 
 }
 
-/* .rating {
-    width: 200px;
-    border: none;
+#empty-star-1, #empty-star-2, #empty-star-3, #empty-star-4, #empty-star-5 {
+    color: tomato;
+    font-size: 20px;
 }
-
-.rating:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-    clip:rect(0,0,0,0);
-    display: none;
-}
-
-.rating:not(:checked) > label {
-    float:right;
-    width:1em;
-    padding:0 .1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:200%;
-    line-height:1.2;
-    color:#ddd;
-    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
-}
-
-.rating:not(:checked) > label:before {
-    content: '★ ';
-}
-
-.rating > input:checked ~ label {
+#star-1, #star-2, #star-3, #star-4, #star-5 {
     color: red;
-    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+    font-size: 20px;
 }
 
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-    color: red;
-    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
-}
-
-.rating > input:checked + label:hover,
-.rating > input:checked + label:hover ~ label,
-.rating > input:checked ~ label:hover,
-.rating > input:checked ~ label:hover ~ label,
-.rating > label:hover ~ input:checked ~ label {
-    color: #ea0;
-    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
-}
-
-.rating > label:active {
-    position:relative;
-    top:2px;
-    left:2px;
-} */

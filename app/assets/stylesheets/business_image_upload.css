@@ -1,11 +1,15 @@
 .upload-container h2{
-    width: 600px;
+    width: 800px;
     margin: 0px auto 0px auto;
     color: red;
 }
 .upload-container a{
     color: #0073bb;
     text-decoration: none;
+}
+
+.upload-container a:hover {
+    text-decoration: underline;
 }
 
 .upload-form {
@@ -26,8 +30,7 @@
     max-height: 450px;
     
 }
-.browse-button {
-
+.browse-button, .upload-submit {
     height: 35px;
     background: red;
     color: white;
@@ -35,16 +38,15 @@
     border-radius: 3px;
     width: 120px;
     margin: auto;
+    transition: 0.5s
 }
+
+.browse-button:hover , .upload-submit:hover {
+    cursor: pointer;
+    background-color: #d32323;
+}
+
 #selectedFile {
     display: none;
 }
-.upload-submit {
-        height: 35px;
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    width: 120px;
-    margin: 5px;
-}
+

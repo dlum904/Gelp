@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBox from '../search_box/search_box_container'
+import NavBarContainer from '../nav_bar/nav_bar_container';
 
 class Splash extends React.Component {
     constructor(props) {
@@ -68,7 +69,9 @@ class Splash extends React.Component {
         if (this.props.businesses[3]) {
             return (
                 <div className="splash">
-    
+                    <header id="main-nav-bar">
+                        <NavBarContainer />
+                    </header>
                     <div className="splash-background">
                         <img src={window.doughnutsURL} />
                     </div>
