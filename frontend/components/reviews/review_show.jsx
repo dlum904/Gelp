@@ -12,19 +12,21 @@ class ReviewShow extends React.Component {
                 stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>;
                 break;
             case 4:
-                stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>;
+                stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i id="empty-star" className="fas fa-star" ></i></p>;
                 break;
             case 3:
-                stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>;
+                stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i id="empty-star" className="fas fa-star" ></i><i id="empty-star" className="fas fa-star" ></i></p>;
                 break;
             case 2:
-                stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>;
+                stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i id="empty-star" className="fas fa-star" ></i><i id="empty-star" className="fas fa-star" ></i><i id="empty-star" className="fas fa-star" ></i></p>;
                 break;
             case 1:
-                stars = <p><i className="fas fa-star" ></i></p>
+                stars = <p><i className="fas fa-star" ></i><i id="empty-star" className="fas fa-star" ></i><i id="empty-star" className="fas fa-star" ></i><i id="empty-star" className="fas fa-star" ></i><i id="empty-star" className="fas fa-star" ></i></p>
                 break;
             default:
         }
+        const date = new Date(this.props.review.created_at);
+        const fullDate = date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
 
         return (
             <div className="review-show">
@@ -34,7 +36,7 @@ class ReviewShow extends React.Component {
                 </div>
                     
                 <div className="review-main-body">
-                    <div className="stars">{stars}</div>
+                    <div className="stars">{stars}<p>{fullDate}</p></div>
                         <p>{this.props.review.body}</p>
                 </div>
             </div>

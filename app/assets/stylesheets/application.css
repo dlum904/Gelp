@@ -70,14 +70,16 @@ html, body {
     height: 75px;
 }
 #dropdown-container {
-  color: darkgrey;
+
+  color: darkgray;
   transition: 0.5s;
   font-size: 40px;
   z-index: 9;
+
 }
 
 #dropdown-container:hover {
-color: gray
+color:white
 }
 .nav-dropdown {
   position: relative;

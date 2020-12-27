@@ -5,4 +5,5 @@ json.extract! review,
             :rating,
             :business_id,
             :business,
-            :business_name
+            :business_name,
+            :created_at

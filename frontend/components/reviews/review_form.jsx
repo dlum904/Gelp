@@ -121,7 +121,7 @@ class ReviewForm extends React.Component {
             this.setState({
                 [field]: e.currentTarget.value
             })
-            console.log(this.state.rating)
+            // console.log(this.state.rating)
         }
     }
 

@@ -21,6 +21,11 @@
        color: gray;
 }
 
+.profile-reviews {
+    width: 700px;
+    padding-right: 40px;
+    border-right: solid 1px lightgray;
+}
 .profile-reviews ul {
     list-style: none;
     margin-top: 0px;
@@ -37,7 +42,7 @@
     display: flex;
     border-top: 1px solid lightgray;
     padding-top: 10px;
-    max-width: 900px
+
 }
 
 .user-profile-review {
@@ -48,6 +53,7 @@
 }
 .profile-business a {
     text-decoration: none;
+    color: #0073bb;
 }
 
 .profile-business a:hover{
@@ -64,4 +70,37 @@
 }
 .stars p {
     margin-bottom: 5px;
+}
+
+.profile-body {
+    display: flex;
+    justify-content: space-between;
+}
+.about-user {
+    /* align-content: center; */
+    margin-right: 40px;
+    /* border: solid 1px red; */
+    height: min-content;
+}
+
+.about-user-title {
+    font-size: 20px;
+    color: red;
+    font-weight: bolder;
+}
+
+.about-user-bold {
+    font-weight: bolder;
+}
+
+.stars {
+    display: flex;
+}
+
+.stars p {
+    min-width: 100px;
+}
+
+#empty-star {
+    color: salmon;
 }

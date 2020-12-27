@@ -10,6 +10,9 @@
     color: #0073bb;
     text-decoration: none;
 }
+.review-form-box a:hover {
+    text-decoration: underline;
+}
 .review-form-box h2 {
     color: red;
     text-decoration: none;
@@ -22,7 +25,7 @@
 }
 
 .form-text-body {
-        font-family: helvetica;
+    font-family: helvetica;
     background-color: transparent;
     border: none;
     height: 400px;

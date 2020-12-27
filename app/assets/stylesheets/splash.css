@@ -5,6 +5,12 @@
     width: 1200px;
     margin: auto;
 }
+
+#main-nav-bar #dropdown-container {
+    background-color: lightgray;
+    border: solid 2px gray;
+    border-radius: 3px;
+}
 #main-nav-bar .nav-links a {
     background-color: transparent;
     color: white;
