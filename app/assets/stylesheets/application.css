@@ -179,9 +179,12 @@ flex-direction: column;
 
 footer a {
     margin-top: 10px;
+    margin: 10px auto 0px auto;
   font: bold 10px helvetica;
   color: #0073bb;
   text-decoration: none;
+  width: max-content;
+  text-align: center;
 }
 
 footer a:hover {

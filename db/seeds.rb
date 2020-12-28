@@ -756,4 +756,177 @@ Delicious,plus I ordered well done home fries and I received well done home frie
         author_id: 2,
         business_id: 8 
     )
+
+    business9 =  Business.create(
+        id: 9,
+        business_name: "Domino's Pizza",
+        city: "New York",
+        state: "NY",
+        business_zip_code: 10011,
+        category_1: "Pizza",
+        phone: "(212) 243-5700",
+        website: "dominos.com",
+        street_address: "170 W 23rd St",
+        business_email: "dominos@test.com",
+        cost: "$$",
+        lat: 40.7562968,
+        lng: -73.985514,
+        owner_id: 3
+    )
+        
+    Schedule.create(
+        day: "monday",
+        open: "11:00 am",
+        close: "12:00 am",
+        business_id: 9
+    )
+
+    Schedule.create(
+        day: "tuesday",
+        open: "11:00 am",
+        close: "12:00 am",
+        business_id: 9
+    )
+    Schedule.create(
+        day: "wednesday",
+        open: "11:00 am",
+        close: "12:00 am",
+        business_id: 9
+    )
+    Schedule.create(
+        day: "thursday",
+        open: "11:00 am",
+        close: "12:00 am",
+        business_id: 9
+    )
+
+    Schedule.create(
+        day: "friday",
+        open: "11:00 am",
+        close: "12:00 am",
+        business_id: 9
+    )
+    Schedule.create(
+        day: "saturday",
+        open: "11:00 am",
+        close: "12:00 am",
+        business_id: 9
+    )
+
+    Schedule.create(
+        day: "sunday",
+        open: "11:00 am",
+        close: "12:00 am",
+        business_id: 9
+    )
+
+    review25 = Review.create(
+        body: "Little taste, not recommend",
+        rating: 1,
+        business_name: "Domino's Pizza",
+        author_id: 1,
+        business_id: 9 
+    )
+    review26 = Review.create(
+        body: "Worst pizza ever.  Cant even be considered real pizza.  Eat this if you want to punish your tastebuds",
+        rating: 1,
+        business_name: "Domino's Pizza",
+        author_id: 2,
+        business_id: 9 
+    )
+
+    business10 =  Business.create(
+        id: 10,
+        business_name: "La Colombe Coffee Roasters",
+        city: "New York",
+        state: "NY",
+        business_zip_code: 10018,
+        category_1: "Coffee",
+        phone: "(917) 386-0157",
+        website: "lacolombe.com",
+        street_address: "1045 6th Ave",
+        business_email: "lacolombe@test.com",
+        cost: "$$$",
+        lat: 40.7537132,
+        lng: -73.988546,
+        owner_id: 3
+    )
+        
+    Schedule.create(
+        day: "monday",
+        open: "8:00 am",
+        close: "3:00 pm",
+        business_id: 10
+    )
+
+    Schedule.create(
+        day: "monday",
+        open: "8:00 am",
+        close: "3:00 pm",
+        business_id: 10
+    )
+
+    Schedule.create(
+        day: "tuesday",
+        open: "8:00 am",
+        close: "3:00 pm",
+        business_id: 10
+    )
+
+    Schedule.create(
+        day: "wednesday",
+        open: "8:00 am",
+        close: "3:00 pm",
+        business_id: 10
+    )
+
+    Schedule.create(
+        day: "thursday",
+        open: "8:00 am",
+        close: "3:00 pm",
+        business_id: 10
+    )
+
+    Schedule.create(
+        day: "friday",
+        open: "8:00 am",
+        close: "3:00 pm",
+        business_id: 10
+    )
+
+    Schedule.create(
+        day: "saturday",
+        open: "8:00 am",
+        close: "3:00 pm",
+        business_id: 10
+    )
+
+    Schedule.create(
+        day: "sunday",
+        open: "8:00 am",
+        close: "3:00 pm",
+        business_id: 10
+    )
+
+    review27 = Review.create(
+        body: "good coffee, much recommend",
+        rating: 5,
+        business_name: "La Colombe Coffee Roasters",
+        author_id: 1,
+        business_id: 10 
+    )
+    review28 = Review.create(
+        body: "This spot is awesome, well worth the price, very welcoming staff and perfect location. With that said, La Colombe Coffee has to have some of the best coffee I've ever had! Everything I've eaten here is delicious.  Every single employee here is awesome. Go there, if you can.",
+        rating: 5,
+        business_name: "La Colombe Coffee Roasters",
+        author_id: 2,
+        business_id: 10
+    )
+    review29 = Review.create(
+        body: "TDepending on your preference of coffee beans, you could give this place a 4 or 5 star rating. I come here often as they are very quick and near my work. Their iced soy latte  is great and I CHALLENGE you to try to not drink it under 10 seconds! ",
+        rating: 5,
+        business_name: "La Colombe Coffee Roasters",
+        author_id: 3,
+        business_id: 10
+    )
 end
