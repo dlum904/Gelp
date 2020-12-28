@@ -12,6 +12,10 @@
     text-decoration: none;
     color: #0073bb;
 }
+
+.photos-index-container p a:hover {
+    text-decoration: underline;
+}
 .photos-index-images ul {
         list-style: none;
         display: flex;
@@ -44,7 +48,13 @@
     padding: 10px 14px 10px 14px;
     border-radius: 5px;
     /* margin-left: 955px; */
+    transition: 0.5s;
 }
+
+.photos-addPhoto:hover {
+    background-color: #d32323;
+}
+
 .photos-button-container {
     width: 1295px;
     display: flex;
@@ -103,3 +113,4 @@
     width: 100vw;
 
 }
+

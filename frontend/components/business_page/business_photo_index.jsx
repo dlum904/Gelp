@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavBarContainer from '../nav_bar/nav_bar_container';
 
 class BusinessPhotoIndex extends React.Component {
     constructor(props) {
@@ -62,19 +63,36 @@ class BusinessPhotoIndex extends React.Component {
             }
             
             return (
-                <div className="photos-index-container">
-                    <p> Photos for <Link to={`/businesses/${this.props.business.id}`}> {this.props.business.business_name}:</Link> </p>
-                    <div className="photos-button-container">
+                <div className="photos-index">
+                    <header>
+                        <NavBarContainer />
+                    </header>
+                    <div className="photos-index-container">
+                        <p> Photos for <Link to={`/businesses/${this.props.business.id}`}> {this.props.business.business_name}:</Link> </p>
+                        <div className="photos-button-container">
 
-                    <Link className="photos-addPhoto" to={`/businesses/${this.props.business.id}/upload`}><i className="fas fa-camera"></i> Add Photo </Link>
+                        <Link className="photos-addPhoto" to={`/businesses/${this.props.business.id}/upload`}><i className="fas fa-camera"></i> Add Photo </Link>
 
+                        </div>
+                        <div className="photos-index-images">
+                            <ul>
+                                {photosList}
+                            </ul>
+                        </div>
                     </div>
-                    <div className="photos-index-images">
-                        <ul>
-                            {photosList}
-                        </ul>
-                    </div>
+                    <footer>
+                        <div className="mylinks">
+                            <p className="about-user-title">About</p>
+                            <a href="https://www.linkedin.com/in/dennis-lum-12526b7a/" target="_blank">Linkedin</a>
+                            <a href="https://github.com/dlum904" target="_blank"> Git Hub</a>
+                            <a href="https://angel.co/u/dennis-lum" target="_blank"> Angel List</a>
+                            <a href="https://dlum904.github.io/dlum/" target="_blank"> About Me</a>
+                        </div>
+                        <img src={window.footerURL} alt="" />
+                    </footer>
+
                 </div>
+
     
             )
         }
@@ -92,6 +110,10 @@ class BusinessPhotoIndex extends React.Component {
                 )
             }
             return (
+                <div className="photos-index">
+                    <header>
+                        <NavBarContainer />
+                    </header>
                     <div className="photos-index-container">
                         <p> Photos for <Link to={`/businesses/${this.props.business.id}`}> {this.props.business.business_name}:</Link> </p>
                         <div className="photos-button-container">
@@ -123,6 +145,17 @@ class BusinessPhotoIndex extends React.Component {
                             </div>
                         </div>
                     </div>
+                    <footer>
+                        <div className="mylinks">
+                            <p className="about-user-title">About</p>
+                            <a href="https://www.linkedin.com/in/dennis-lum-12526b7a/" target="_blank">Linkedin</a>
+                            <a href="https://github.com/dlum904" target="_blank"> Git Hub</a>
+                            <a href="https://angel.co/u/dennis-lum" target="_blank"> Angel List</a>
+                            <a href="https://dlum904.github.io/dlum/" target="_blank"> About Me</a>
+                        </div>
+                        <img src={window.footerURL} alt="" />
+                    </footer>
+                </div>
 
 
 
