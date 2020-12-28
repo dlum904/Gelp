@@ -74,7 +74,16 @@ class BusinessPhotoUpload extends React.Component {
                             onChange={this.handleFile.bind(this)} />
                         <input className= "upload-submit"type="submit" value="Upload"/>
                     </form>
-
+                    <footer>
+                        <div className="mylinks">
+                            <p className="about-user-title">About</p>
+                            <a href="https://www.linkedin.com/in/dennis-lum-12526b7a/" target="_blank">Linkedin</a>
+                            <a href="https://github.com/dlum904" target="_blank"> Git Hub</a>
+                            <a href="https://angel.co/u/dennis-lum" target="_blank"> Angel List</a>
+                            <a href="https://dlum904.github.io/dlum/" target="_blank"> About Me</a>
+                        </div>
+                        <img src={window.footerURL} alt="" />
+                    </footer>
                 </div>
 
             )
