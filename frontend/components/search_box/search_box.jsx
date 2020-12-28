@@ -68,7 +68,7 @@ class SearchBox extends React.Component {
                     </form>
                     <div className="sample-categories">
                         <p onClick={this.categorySearch("Pizza")}>Pizza</p>
-                        <p onClick={this.categorySearch("Coffee")}>Coffee</p>
+                        <p onClick={this.categorySearch("Diner")}>Diner</p>
                         <p onClick={this.categorySearch("Burgers")}>Burgers</p>
                         <p onClick={this.categorySearch("Sushi")}>Sushi</p>
     

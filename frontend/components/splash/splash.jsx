@@ -86,7 +86,7 @@ class Splash extends React.Component {
                     <div className="new-businesses">
                         <p className="new-businesses-title">Hot & New Businesses</p>
                         <ul className="new-business">
-                            {Object.values(this.props.businesses).map((business) => {
+                            {Object.values(this.props.businesses).slice(0, 4).map((business) => {
                                 const categories = business.category_2 ? business.category_3 ? business.category_1 + ", " + business.category_2 + ", " + business.category_3 : business.category_1 + ", " + business.category_2 : business.category_1;
                                 return (
                                     <li key={business.id}>
@@ -94,7 +94,7 @@ class Splash extends React.Component {
                                             <img className="new-business-img" src={business.photos[0]} />
                                             <p className="new-business-title">{business.business_name}</p>
                                             {this.avgRating(business)}
-                                            <p>{categories}</p>
+                                            <p>{business.cost} · {categories}</p>
                                         </Link>
                                     </li>
 
@@ -103,6 +103,16 @@ class Splash extends React.Component {
                         </ul>
 
                     </div>
+                    <footer>
+                        <div className="mylinks">
+                            <p className="about-user-title">About</p>
+                            <a href="https://www.linkedin.com/in/dennis-lum-12526b7a/" target="_blank">Linkedin</a>
+                            <a href="https://github.com/dlum904" target="_blank"> Git Hub</a>
+                            <a href="https://angel.co/u/dennis-lum" target="_blank"> Angel List</a>
+                            <a href="https://dlum904.github.io/dlum/" target="_blank"> About Me</a>
+                        </div>
+                        <img src={window.footerURL} alt="" />
+                    </footer>
                 </div>
             )
         }

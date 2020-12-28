@@ -85,5 +85,10 @@
     position: fixed;
     top: 106px;
     left: 61%;
+    border-left: solid 1px lightgray;
 
+}
+
+.business-index-footer {
+    width: 60.5vw;
 }

@@ -13,6 +13,7 @@ json.extract! business,
             :lat,
             :lng,
             :owner_id,
-            :reviews
+            :reviews,
+            :cost
 
 json.photos business.photos.map { |file| url_for(file) }

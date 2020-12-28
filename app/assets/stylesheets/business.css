@@ -22,7 +22,15 @@
     font-size: 40px;
     color: red
 }
+#empty-title-star {
+    font-size: 40px;
+    color: salmon
+}
 .business-title-block-category {
+    color: gray;
+}
+.business-cost {
+    margin-top: 10px;
     color: gray;
 }
 .hours-body p{
@@ -172,6 +180,7 @@ margin: 3px;
     margin-top: 20px;
     margin-bottom: 20px;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .side-info-dir {

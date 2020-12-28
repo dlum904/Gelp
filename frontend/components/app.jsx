@@ -32,12 +32,16 @@ const App = () => (
             <Route path="/" component={Splash} />
         </Switch>
 
-        <footer>
+        {/* <footer>
             <div className="mylinks">
-                <a href="https://www.linkedin.com/in/dennis-lum-12526b7a/">Linkedin</a>
-                <a href="https://github.com/dlum904"> Git Hub</a>
+                <p className="about-user-title">About</p>
+                <a href="https://www.linkedin.com/in/dennis-lum-12526b7a/" target="_blank">Linkedin</a>
+                <a href="https://github.com/dlum904" target="_blank"> Git Hub</a>
+                <a href="https://angel.co/u/dennis-lum" target="_blank"> Angel List</a>
+                <a href="https://dlum904.github.io/dlum/" target="_blank"> About Me</a>
             </div>
-        </footer>
+            <img src={window.footerURL} alt=""/>
+        </footer> */}
     </div>
 );
 

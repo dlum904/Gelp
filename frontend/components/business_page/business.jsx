@@ -95,7 +95,7 @@ class Business extends React.Component {
     
     render() {
         if (this.props.business && this.props.schedules.monday) {
-            const { id, business_name, category_1, category_2, category_3, photos, street_address, phone, city, state, business_zip_code } = this.props.business;
+            const { id, business_name, category_1, category_2, category_3, photos, street_address, phone, city, state, business_zip_code, cost } = this.props.business;
             const categories =  category_2 ? category_3 ? category_1 + ", " + category_2 + ", " + category_3 : category_1 + ", " + category_2 : category_1;
             const url = `http://maps.google.com/?q=${this.props.business.street_address}`
             return (
@@ -120,6 +120,9 @@ class Business extends React.Component {
                                 </div>
                                 <div className="business-title-block-category">
                                 {categories}
+                                </div>
+                                <div className="business-cost">
+                                    {cost}
                                 </div>
                                 <div className="business-title-block-hours">
                                     <div className="hours-body"><p>Open</p>  {this.open()}</div>
@@ -146,7 +149,6 @@ class Business extends React.Component {
                                 <div className="address-location-block">
                                     <div className="address-block">
                                         <GoogleMap business={this.props.business}/>
-                                        {/* <img src={window.mapURL} /> */}
                                         <p>{street_address}</p>
                                         <p>{city}, {state} {business_zip_code}</p>
                                         <p>{phone}</p>
@@ -176,12 +178,12 @@ class Business extends React.Component {
                                     <i className="fas fa-phone-volume"></i>
                                 </li>
                                 <li>
-                                    <a className="side-info" href={this.props.business.website}>{this.props.business.website}</a>
+                                    <a className="side-info" target="_blank" href={this.props.business.website}>{this.props.business.website}</a>
                                     <i className="fas fa-external-link-square-alt"></i>
                                 </li>
                                 <li>
                                     <div className="side-info-dir">
-                                        <a href={url}> Get Directions </a>
+                                        <a href={url} target="_blank"> Get Directions </a>
                                         <p className="side-info-address">{street_address}, {city}, {state} {business_zip_code}</p>
                                     </div>
                                     <i className="fas fa-directions"></i>
@@ -189,6 +191,16 @@ class Business extends React.Component {
                             </ul>
                         </div>
                     </div>
+                    <footer>
+                        <div className="mylinks">
+                            <p className="about-user-title">About</p>
+                            <a href="https://www.linkedin.com/in/dennis-lum-12526b7a/" target="_blank">Linkedin</a>
+                            <a href="https://github.com/dlum904" target="_blank"> Git Hub</a>
+                            <a href="https://angel.co/u/dennis-lum" target="_blank"> Angel List</a>
+                            <a href="https://dlum904.github.io/dlum/" target="_blank"> About Me</a>
+                        </div>
+                        <img src={window.footerURL} alt="" />
+                    </footer>
                 </div>
             )
         }

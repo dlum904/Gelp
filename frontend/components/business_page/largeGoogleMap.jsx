@@ -18,20 +18,6 @@ class LargeGoogleMap extends React.Component {
                 zoom: 13
             };
             this.map = new google.maps.Map(this.mapNode, mapOptions);
-            // const markerOptions = {
-            //     position: { lat: this.props.business.lat, lng: this.props.business.lng },
-            //     map: this.map
-            // }
-            // this.marker = new google.maps.Marker(markerOptions);
-    
-            // const markerOptions2 = {
-            //     position: {
-            //         lat: 40.7331781,
-            //         lng: -73.9898288
-            //     },
-            //     map: this.map
-            // }
-            // this.marker2 = new google.maps.Marker(markerOptions2)
     
             for (let i = 0; i < Object.values(this.props.businesses).length; i++) {
                 
@@ -52,17 +38,12 @@ class LargeGoogleMap extends React.Component {
     }
 
     render() {
-        console.log(this.props.business)
-        // if (Object.values(this.props.businesses).length > 0) {
-            debugger
             return (
                 <div className="large-location-map" ref={map => this.mapNode = map}>
                 </div>
             )
-        }
-    //     else
-    //     return (null)
-    // }
+    }
+
 }
 
 export default LargeGoogleMap;
