@@ -12,6 +12,13 @@ class ReviewsIndex extends React.Component {
         this.props.fetchAllReviews(this.props.business.id)
     }
 
+    componentDidUpdate() {
+
+        if (this.props.business.reviews.length !== Object.values(this.props.reviews).length) {
+            this.props.fetchAllReviews(this.props.business.id)
+        }
+    }
+
 
     render() {
 
