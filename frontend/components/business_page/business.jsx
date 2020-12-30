@@ -178,7 +178,7 @@ class Business extends React.Component {
                                     <i className="fas fa-phone-volume"></i>
                                 </li>
                                 <li>
-                                    <a className="side-info" target="_blank" href={this.props.business.website}>{this.props.business.website}</a>
+                                   <a className="side-info" href={"http://" + this.props.business.website} target="_blank">{this.props.business.website}</a>
                                     <i className="fas fa-external-link-square-alt"></i>
                                 </li>
                                 <li>
