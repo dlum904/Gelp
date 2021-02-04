@@ -16,9 +16,6 @@ import BusinessPhotoIndexContainer from './business_page/business_photo_index_co
 
 const App = () => (
     <div>
-        {/* <header>
-        <NavBarContainer />
-        </header> */}
         <Switch>
             <AuthRoute path="/login" component={LogInFormContainer} />
             <AuthRoute path="/signup" component={SignUpFormContainer} />
