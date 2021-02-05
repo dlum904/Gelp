@@ -28,7 +28,6 @@ const App = () => (
             <ProtectedRoute exact path="/user" component={UserShowContainer} />
             <Route path="/" component={Splash} />
         </Switch>
-
     </div>
 );
 
