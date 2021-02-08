@@ -19,7 +19,6 @@ class ReviewsIndex extends React.Component {
         }
     }
 
-
     render() {
 
         if (this.props.reviews) {
