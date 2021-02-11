@@ -20,7 +20,6 @@ class LargeGoogleMap extends React.Component {
             this.map = new google.maps.Map(this.mapNode, mapOptions);
     
             for (let i = 0; i < Object.values(this.props.businesses).length; i++) {
-                
                 const markerOptions = {
                     position: {
                         lat: Object.values(this.props.businesses)[i].lat,
