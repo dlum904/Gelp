@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class LargeGoogleMap extends React.Component {
-
     constructor(props) {
         super(props)
     }
