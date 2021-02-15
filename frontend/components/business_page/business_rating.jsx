@@ -22,24 +22,7 @@ class BusinessRating extends React.Component {
     render() {
     
         let stars
-        // switch (this.props.review.rating) {
-        //     case 5:
-        //         stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>;
-        //         break;
-        //     case 4:
-        //         stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>;
-        //         break;
-        //     case 3:
-        //         stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>;
-        //         break;
-        //     case 2:
-        //         stars = <p><i className="fas fa-star" ></i><i className="fas fa-star" ></i></p>;
-        //         break;
-        //     case 1:
-        //         stars = <p><i className="fas fa-star" ></i></p>
-        //         break;
-        //     default:
-        // }
+
         if (this.props.reviews) {
             return (
                 <div className="business-rating">
