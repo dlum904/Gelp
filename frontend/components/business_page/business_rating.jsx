@@ -12,7 +12,6 @@ class BusinessRating extends React.Component {
         // ("componentDidMount")
     }
 
-
     render() {
     
         let stars
