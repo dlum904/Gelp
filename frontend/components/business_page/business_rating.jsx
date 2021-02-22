@@ -9,7 +9,6 @@ class BusinessRating extends React.Component {
     }
     componentDidMount() {
         this.props.fetchAllReviews(this.props.business.id)
-
     }
 
     render() {
