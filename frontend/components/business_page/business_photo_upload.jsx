@@ -85,7 +85,6 @@ class BusinessPhotoUpload extends React.Component {
                         <img src={window.footerURL} alt="" />
                     </footer>
                 </div>
-
             )
         }
         else
