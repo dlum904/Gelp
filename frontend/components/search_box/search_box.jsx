@@ -10,7 +10,6 @@ class SearchBox extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.categorySearch = this.categorySearch.bind(this);
     }
 
     handleChange(e) {
