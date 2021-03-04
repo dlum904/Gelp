@@ -25,7 +25,6 @@ class NavBar extends React.Component {
         )
     }
 
-
     render() {
         // turnary if there's a current user.
         return this.props.currentUser ? (
