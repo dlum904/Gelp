@@ -26,7 +26,7 @@ class NavBar extends React.Component {
     }
 
     render() {
-        // turnary if there's a current user.
+        // turnary if there's a current user
         return this.props.currentUser ? (
             <div className="nav-logged-in">
                 <ul className="nav-list">
