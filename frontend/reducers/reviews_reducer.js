@@ -9,8 +9,6 @@ const reviewsReducer = (oldState = {}, action) => {
         case RECEIVE_REVIEW:
             newState[action.review.id] = action.review;
             return newState;
-        // case CREATE_REVIEW:
-        //     action[action.review.id] = action.review
         default:
             return oldState;
     }
