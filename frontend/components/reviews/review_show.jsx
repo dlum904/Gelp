@@ -25,6 +25,7 @@ class ReviewShow extends React.Component {
                 break;
             default:
         }
+        
         const date = new Date(this.props.review.created_at);
         const fullDate = date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
 
