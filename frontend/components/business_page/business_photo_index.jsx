@@ -10,7 +10,6 @@ class BusinessPhotoIndex extends React.Component {
         }
         // this.handleSubmit = this.handleSubmit.bind(this);
         // this.openModal = this.openModal.bind(this);
-        // this.closeModal = this.closeModal.bind(this);
         this.nextModal = this.nextModal.bind(this);
         this.prevModal = this.prevModal.bind(this);
     }
