@@ -64,6 +64,7 @@ class BusinessIndex extends React.Component {
 
     render() {
         // will need to iterate through a slice of state provided by a search result that we get
+        
         let num = 0;
         if (this.props.businesses) {
             return (
