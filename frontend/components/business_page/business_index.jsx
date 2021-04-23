@@ -9,6 +9,7 @@ class BusinessIndex extends React.Component {
         super(props)
 
     }
+    
     avgRating(business) {
         let numRatings = Object.values(business.reviews).length;
         let sumRatings = 0;
