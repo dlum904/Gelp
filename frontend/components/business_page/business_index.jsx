@@ -17,7 +17,7 @@ class BusinessIndex extends React.Component {
             sumRatings += business.reviews[i].rating;
         }
         const rating = sumRatings / numRatings;
-        // switchcase to display correct number of stars
+        // switchcase to display correct number of stars.  TODO: maybe take out half stars.
         switch (Math.round(rating * 2) / 2) {
             case 5:
                 return (
