@@ -101,7 +101,7 @@ class SessionForm extends React.Component {
     }
     
     render () {
-        if (this.props.formType === "login") {      //login form
+        if (this.props.formType === "login") {      //login form.
             return (
                 <div className="session-form">
                     <div className="session-form-nav">
