@@ -39,6 +39,7 @@
 
 .splash-background {
     height: 625px;
+    width: 100%;
     position: absolute;
     top: 0px;
 }
